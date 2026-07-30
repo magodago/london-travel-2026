@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Londres 2026 — NEO Travel</title>
+<title>Londres 2026 — NEO Travel · 2ª edición</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -19,14 +19,18 @@
   --text-dim: #8889a0;
   --tube: #004d73;
   --walk: #00c853;
+  --green-bg: rgba(0,200,83,0.1);
+  --gold-bg: rgba(212,168,67,0.1);
+  --red-bg: rgba(255,77,109,0.1);
+  --blue-bg: rgba(0,77,115,0.15);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
 }
 /* HERO */
 .hero {
@@ -38,376 +42,237 @@ body {
   align-items:center;
   text-align:center;
   padding:2rem;
-  background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%, #0d0d1a 100%);
+  background:linear-gradient(135deg,#0a0a14 0%,#1a1a2e 50%,#0d0d1a 100%);
   overflow:hidden;
 }
 .hero::before {
   content:'';
   position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background: radial-gradient(circle at 30% 40%, rgba(212,168,67,0.08) 0%, transparent 50%),
-              radial-gradient(circle at 70% 60%, rgba(255,77,109,0.05) 0%, transparent 50%);
-  animation: float 20s ease-in-out infinite;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(circle at 30% 40%,rgba(212,168,67,0.08) 0%,transparent 50%),
+             radial-gradient(circle at 70% 60%,rgba(255,77,109,0.05) 0%,transparent 50%);
+  animation:float 20s ease-in-out infinite;
 }
 @keyframes float {
   0%,100%{transform:translate(0,0) rotate(0deg)}
   33%{transform:translate(30px,-30px) rotate(1deg)}
   66%{transform:translate(-20px,20px) rotate(-1deg)}
 }
-.hero-content { position:relative; z-index:1; }
+.hero-content { position:relative;z-index:1; }
 .hero-badge {
-  display:inline-block;
-  padding:0.4rem 1.2rem;
-  border:1px solid var(--gold);
-  border-radius:50px;
-  font-size:0.75rem;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  color:var(--gold);
-  margin-bottom:1.5rem;
+  display:inline-block;padding:0.4rem 1.2rem;
+  border:1px solid var(--gold);border-radius:50px;
+  font-size:0.75rem;text-transform:uppercase;letter-spacing:3px;
+  color:var(--gold);margin-bottom:1.5rem;
 }
 .hero h1 {
-  font-family:'Playfair Display', serif;
-  font-size:clamp(2.5rem,8vw,5rem);
-  font-weight:700;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem,8vw,5rem);font-weight:700;
   margin-bottom:0.5rem;
-  background: linear-gradient(135deg, var(--gold) 0%, #f0ede8 50%, var(--gold) 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  background:linear-gradient(135deg,var(--gold) 0%,#f0ede8 50%,var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
 }
 .hero-sub {
-  font-size:clamp(1rem,2vw,1.3rem);
-  color:var(--text-dim);
-  font-weight:300;
-  max-width:600px;
-  margin:1rem auto 2rem;
+  font-size:clamp(1rem,2vw,1.3rem);color:var(--text-dim);
+  font-weight:300;max-width:600px;margin:1rem auto 2rem;
 }
 .hero-dates {
-  display:flex;
-  gap:1rem;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-bottom:2rem;
+  display:flex;gap:0.6rem;justify-content:center;
+  flex-wrap:wrap;margin-bottom:2rem;
 }
 .date-chip {
-  padding:0.5rem 1.2rem;
-  background:var(--card);
-  border-radius:12px;
-  font-size:0.85rem;
-  border:1px solid rgba(212,168,67,0.2);
+  padding:0.5rem 1rem;background:var(--card);border-radius:12px;
+  font-size:0.8rem;border:1px solid rgba(212,168,67,0.2);
 }
 .date-chip strong { color:var(--gold); }
 .hero-cta {
-  display:inline-flex;
-  align-items:center;
-  gap:0.5rem;
-  padding:1rem 2rem;
-  background:var(--gold);
-  color:var(--bg);
-  border:none;
-  border-radius:50px;
-  font-weight:600;
-  font-size:1rem;
-  cursor:pointer;
-  transition:all 0.3s;
-  text-decoration:none;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:1rem 2rem;background:var(--gold);color:var(--bg);
+  border:none;border-radius:50px;font-weight:600;font-size:1rem;
+  cursor:pointer;transition:all 0.3s;text-decoration:none;
 }
-.hero-cta:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(212,168,67,0.3); }
+.hero-cta:hover { transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,168,67,0.3); }
 /* NAV */
 nav {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(10,10,20,0.95);
-  backdrop-filter:blur(20px);
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(212,168,67,0.1);
   padding:0 1rem;
 }
 .nav-inner {
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  gap:0.5rem;
-  overflow-x:auto;
-  padding:0.8rem 0;
-  scrollbar-width:none;
+  max-width:1200px;margin:0 auto;
+  display:flex;gap:0.5rem;overflow-x:auto;
+  padding:0.8rem 0;scrollbar-width:none;
   -webkit-overflow-scrolling:touch;
 }
 .nav-inner::-webkit-scrollbar { display:none; }
 .nav-btn {
-  flex-shrink:0;
-  padding:0.5rem 1rem;
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:50px;
-  color:var(--text-dim);
-  font-size:0.8rem;
-  font-weight:500;
-  cursor:pointer;
-  transition:all 0.3s;
-  white-space:nowrap;
+  flex-shrink:0;padding:0.5rem 1rem;
+  background:transparent;border:1px solid rgba(255,255,255,0.1);
+  border-radius:50px;color:var(--text-dim);font-size:0.8rem;
+  font-weight:500;cursor:pointer;transition:all 0.3s;white-space:nowrap;
 }
-.nav-btn:hover, .nav-btn.active {
-  background:var(--gold);
-  color:var(--bg);
-  border-color:var(--gold);
-}
+.nav-btn:hover,.nav-btn.active { background:var(--gold);color:var(--bg);border-color:var(--gold); }
 /* SECTIONS */
-.section {
-  max-width:1200px;
-  margin:0 auto;
-  padding:4rem 1.5rem;
-  display:none;
-}
+.section { max-width:1200px;margin:0 auto;padding:4rem 1.5rem;display:none; }
 .section.active { display:block; }
 .section-title {
-  font-family:'Playfair Display', serif;
-  font-size:clamp(1.8rem,4vw,2.5rem);
-  margin-bottom:0.5rem;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:0.5rem;
 }
-.section-sub {
-  color:var(--text-dim);
-  margin-bottom:2.5rem;
-  font-size:1rem;
-}
+.section-sub { color:var(--text-dim);margin-bottom:2.5rem;font-size:1rem; }
 /* CARDS */
-.card-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:1.5rem;
-}
+.card-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem; }
 .card {
-  background:var(--card);
-  border-radius:16px;
-  padding:1.5rem;
-  border:1px solid rgba(255,255,255,0.05);
-  transition:all 0.3s;
+  background:var(--card);border-radius:16px;padding:1.5rem;
+  border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;
 }
-.card:hover { border-color:rgba(212,168,67,0.3); transform:translateY(-2px); }
-.card h3 { font-size:1.1rem; margin-bottom:0.5rem; color:var(--gold); }
-.card p { color:var(--text-dim); font-size:0.9rem; line-height:1.5; }
-.card .meta {
-  display:flex;
-  gap:0.8rem;
-  margin-top:0.8rem;
-  font-size:0.8rem;
-  color:var(--text-dim);
-}
-.card .meta span { display:flex; align-items:center; gap:0.3rem; }
-.walk-icon { color:var(--walk); }
-.tube-icon { color:var(--tube); }
-.tag {
-  display:inline-block;
-  padding:0.2rem 0.6rem;
-  border-radius:6px;
-  font-size:0.7rem;
-  font-weight:500;
-  margin-right:0.3rem;
-  margin-bottom:0.3rem;
-}
-.tag-green { background:rgba(0,200,83,0.15); color:var(--walk); }
-.tag-gold { background:rgba(212,168,67,0.15); color:var(--gold); }
-.tag-blue { background:rgba(0,77,115,0.2); color:#4fc3f7; }
-.tag-red { background:rgba(255,77,109,0.15); color:var(--accent); }
-.tag-purple { background:rgba(156,39,176,0.15); color:#ce93d8; }
-
+.card:hover { border-color:rgba(212,168,67,0.3);transform:translateY(-2px); }
+.card h3 { font-size:1.1rem;margin-bottom:0.5rem;color:var(--gold); }
+.card p { color:var(--text-dim);font-size:0.9rem;line-height:1.5; }
+/* BUDGET */
+.budget-table { width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem; }
+.budget-table th { text-align:left;padding:0.6rem 0.8rem;border-bottom:1px solid rgba(255,255,255,0.1);color:var(--gold);font-weight:600;font-size:0.8rem; }
+.budget-table td { padding:0.6rem 0.8rem;border-bottom:1px solid rgba(255,255,255,0.05); }
+.budget-table tr.total td { border-top:2px solid var(--gold);font-weight:700;color:var(--gold); }
+.budget-table .free { color:var(--walk); }
+.budget-table .money { text-align:right; }
 /* DAY CARDS */
 .day-card {
-  background:var(--card);
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.05);
-  margin-bottom:1.5rem;
+  background:var(--card);border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.05);margin-bottom:1.5rem;
 }
 .day-header {
-  padding:1.2rem 1.5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
+  padding:1.2rem 1.5rem;display:flex;
+  justify-content:space-between;align-items:center;cursor:pointer;
   transition:background 0.3s;
 }
 .day-header:hover { background:rgba(212,168,67,0.05); }
-.day-header h3 { font-size:1.1rem; color:var(--gold); margin:0; }
-.day-header .arrow { transition:transform 0.3s; color:var(--text-dim); }
+.day-header h3 { font-size:1.1rem;color:var(--gold);margin:0; }
+.day-header .arrow { transition:transform 0.3s;color:var(--text-dim); }
 .day-header.open .arrow { transform:rotate(180deg); }
-.day-body { padding:0 1.5rem 1.5rem; display:none; }
+.day-body { padding:0 1.5rem 1.5rem;display:none; }
 .day-body.open { display:block; }
 .day-body .route-step {
-  display:flex;
-  gap:1rem;
-  padding:0.8rem 0;
-  border-bottom:1px solid rgba(255,255,255,0.05);
-  align-items:flex-start;
+  display:flex;gap:1rem;padding:0.8rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);align-items:flex-start;
 }
 .day-body .route-step:last-child { border:none; }
 .route-step .icon {
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  font-size:0.8rem;
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:0.8rem;
 }
-.route-step .icon.walk { background:rgba(0,200,83,0.15); color:var(--walk); }
-.route-step .icon.tube { background:rgba(0,77,115,0.2); color:#4fc3f7; }
-.route-step .icon.food { background:rgba(212,168,67,0.15); color:var(--gold); }
-.route-step .icon.attraction { background:rgba(255,77,109,0.15); color:var(--accent); }
+.route-step .icon.walk { background:var(--green-bg);color:var(--walk); }
+.route-step .icon.tube { background:var(--blue-bg);color:#4fc3f7; }
+.route-step .icon.food { background:var(--gold-bg);color:var(--gold); }
+.route-step .icon.attraction { background:var(--red-bg);color:var(--accent); }
+.route-step .icon.money { background:var(--gold-bg);color:var(--gold); }
 .route-step .info { flex:1; }
-.route-step .info h4 { font-size:0.95rem; margin-bottom:0.2rem; }
-.route-step .info p { font-size:0.8rem; color:var(--text-dim); }
-/* TRANSPORT */
-.transport-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-  gap:1rem;
+.route-step .info h4 { font-size:0.95rem;margin-bottom:0.2rem; }
+.route-step .info p { font-size:0.8rem;color:var(--text-dim); }
+.route-step .price-tag {
+  font-size:0.75rem;padding:0.2rem 0.5rem;
+  border-radius:6px;white-space:nowrap;font-weight:600;
 }
+.price-free { background:var(--green-bg);color:var(--walk); }
+.price-paid { background:var(--gold-bg);color:var(--gold); }
+/* TRANSPORT */
+.transport-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem; }
 .transport-card {
-  background:var(--card);
-  border-radius:12px;
-  padding:1.2rem;
+  background:var(--card);border-radius:12px;padding:1.2rem;
   border:1px solid rgba(255,255,255,0.05);
 }
-.transport-card h4 { font-size:1rem; color:var(--gold); margin-bottom:0.3rem; }
-.transport-card .line { display:flex; gap:0.3rem; margin:0.5rem 0; }
-.transport-card .line span {
-  padding:0.15rem 0.5rem;
-  border-radius:4px;
-  font-size:0.7rem;
-  font-weight:700;
-  color:#fff;
-}
+.transport-card h4 { font-size:1rem;color:var(--gold);margin-bottom:0.3rem; }
+.transport-card .line { display:flex;gap:0.3rem;margin:0.5rem 0;flex-wrap:wrap; }
+.transport-card .line span { padding:0.15rem 0.5rem;border-radius:4px;font-size:0.7rem;font-weight:700;color:#fff; }
 .bakerloo { background:#b36305; }
 .northern { background:#000; }
 .jubilee { background:#6a7278; }
 .piccadilly { background:#003688; }
 .district { background:#007229; }
-.circle { background:#ffd300; color:#000; }
-.central { background:#dc241f; }
+.circle { background:#ffd300;color:#000; }
+/* STEP CARD */
+.step-card {
+  background:var(--card);border-radius:12px;padding:1.2rem;
+  margin-bottom:1rem;border-left:3px solid var(--gold);
+  display:flex;gap:1rem;align-items:flex-start;
+}
+.step-num {
+  width:28px;height:28px;border-radius:50%;
+  background:var(--gold);color:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.8rem;flex-shrink:0;
+}
 /* LANDMARKS */
 .landmark-card {
-  background:var(--card);
-  border-radius:16px;
-  overflow:hidden;
+  background:var(--card);border-radius:16px;overflow:hidden;
   border:1px solid rgba(255,255,255,0.05);
 }
 .landmark-img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  background:linear-gradient(135deg, #1a1a2e, #2a2a3e);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:3rem;
+  width:100%;height:200px;object-fit:cover;
+  background:linear-gradient(135deg,#1a1a2e,#2a2a3e);
+  display:flex;align-items:center;justify-content:center;font-size:3rem;
 }
 .landmark-body { padding:1.2rem; }
-.landmark-body h3 { font-size:1.1rem; color:var(--gold); margin-bottom:0.3rem; }
-.landmark-body p { font-size:0.85rem; color:var(--text-dim); margin-bottom:0.8rem; }
+.landmark-body h3 { font-size:1.1rem;color:var(--gold);margin-bottom:0.3rem; }
+.landmark-body .price-line { font-size:0.8rem;color:var(--text-dim);margin-bottom:0.5rem; }
+.landmark-body p { font-size:0.85rem;color:var(--text-dim);margin-bottom:0.8rem; }
 .audio-btn {
-  display:inline-flex;
-  align-items:center;
-  gap:0.4rem;
-  padding:0.4rem 1rem;
-  border-radius:50px;
-  border:1px solid rgba(212,168,67,0.3);
-  background:transparent;
-  color:var(--gold);
-  font-size:0.8rem;
-  cursor:pointer;
-  transition:all 0.3s;
+  display:inline-flex;align-items:center;gap:0.4rem;
+  padding:0.4rem 1rem;border-radius:50px;
+  border:1px solid rgba(212,168,67,0.3);background:transparent;
+  color:var(--gold);font-size:0.8rem;cursor:pointer;transition:all 0.3s;
 }
-.audio-btn:hover { background:rgba(212,168,67,0.1); }
-.audio-btn.playing { background:var(--gold); color:var(--bg); border-color:var(--gold); }
-/* MAP */
-#map {
-  width:100%;
-  height:400px;
-  border-radius:16px;
-  margin-bottom:2rem;
-  z-index:1;
-}
-/* WEATHER */
+.audio-btn:hover { background:var(--gold-bg); }
+.audio-btn.playing { background:var(--gold);color:var(--bg);border-color:var(--gold); }
+#map { width:100%;height:400px;border-radius:16px;margin-bottom:2rem;z-index:1; }
 .weather-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:1rem;
-  margin-bottom:2rem;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-bottom:2rem;
 }
 .weather-card {
-  background:var(--card);
-  border-radius:12px;
-  padding:1.2rem;
-  text-align:center;
+  background:var(--card);border-radius:12px;padding:1.2rem;text-align:center;
   border:1px solid rgba(255,255,255,0.05);
 }
-.weather-card .day { font-size:0.85rem; color:var(--gold); font-weight:600; }
-.weather-card .temp { font-size:1.8rem; font-weight:700; margin:0.3rem 0; }
-.weather-card .desc { font-size:0.75rem; color:var(--text-dim); }
-/* PACKING */
-.packing-list {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:0.8rem;
-}
+.weather-card .day { font-size:0.85rem;color:var(--gold);font-weight:600; }
+.weather-card .temp { font-size:1.8rem;font-weight:700;margin:0.3rem 0; }
+.weather-card .desc { font-size:0.75rem;color:var(--text-dim); }
+.packing-list { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem; }
 .packing-item {
-  background:var(--card);
-  border-radius:10px;
-  padding:0.8rem 1rem;
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  border:1px solid rgba(255,255,255,0.05);
-  font-size:0.85rem;
+  background:var(--card);border-radius:10px;padding:0.8rem 1rem;
+  display:flex;align-items:center;gap:0.6rem;
+  border:1px solid rgba(255,255,255,0.05);font-size:0.85rem;
 }
 .packing-item .check {
-  width:18px;height:18px;
-  border:2px solid var(--text-dim);
-  border-radius:4px;
-  flex-shrink:0;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all 0.3s;
+  width:18px;height:18px;border:2px solid var(--text-dim);
+  border-radius:4px;flex-shrink:0;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all 0.3s;
 }
-.packing-item .check.done {
-  background:var(--gold);
-  border-color:var(--gold);
-}
-.packing-item .check.done::after { content:'✓'; color:var(--bg); font-size:0.7rem; font-weight:700; }
-.packing-item .check.done + span { text-decoration:line-through; opacity:0.5; }
-/* TIPS */
+.packing-item .check.done { background:var(--gold);border-color:var(--gold); }
+.packing-item .check.done::after { content:'✓';color:var(--bg);font-size:0.7rem;font-weight:700; }
+.packing-item .check.done+span { text-decoration:line-through;opacity:0.5; }
 .tip-card {
-  background:var(--card);
-  border-radius:12px;
-  padding:1.2rem;
-  margin-bottom:1rem;
-  border-left:3px solid var(--gold);
+  background:var(--card);border-radius:12px;padding:1.2rem;
+  margin-bottom:1rem;border-left:3px solid var(--gold);
 }
-.tip-card h4 { font-size:0.95rem; margin-bottom:0.3rem; color:var(--gold); }
-.tip-card p { font-size:0.85rem; color:var(--text-dim); }
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:3rem 1.5rem;
-  color:var(--text-dim);
-  font-size:0.8rem;
-  border-top:1px solid rgba(255,255,255,0.05);
+.tip-card h4 { font-size:0.95rem;margin-bottom:0.3rem;color:var(--gold); }
+.tip-card p { font-size:0.85rem;color:var(--text-dim); }
+footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0.8rem;border-top:1px solid rgba(255,255,255,0.05); }
+.tag {
+  display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;
+  font-size:0.7rem;font-weight:500;margin-right:0.3rem;margin-bottom:0.3rem;
 }
-/* RESPONSIVE */
+.tag-green { background:var(--green-bg);color:var(--walk); }
+.tag-gold { background:var(--gold-bg);color:var(--gold); }
+.tag-blue { background:var(--blue-bg);color:#4fc3f7; }
+.tag-red { background:var(--red-bg);color:var(--accent); }
 @media(max-width:600px){
-  .card-grid { grid-template-columns:1fr; }
-  .transport-grid { grid-template-columns:1fr; }
-  .packing-list { grid-template-columns:1fr; }
+  .card-grid,.transport-grid,.packing-list { grid-template-columns:1fr; }
   .hero h1 { font-size:2.2rem; }
   .section { padding:2rem 1rem; }
+  .budget-table { font-size:0.8rem; }
 }
 </style>
 </head>
@@ -416,270 +281,348 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">NEO Travel · Julio 2026</div>
+    <div class="hero-badge">NEO Travel · v2.0</div>
     <h1>Londres con papá</h1>
-    <p class="hero-sub">Una semana mágica en Londres con tus hijas. Planificado desde 18 Amelia Street, al corazón de la ciudad caminando.</p>
+    <p class="hero-sub">Del lunes al viernes. 18 Amelia Street. Planificado al detalle para ti y tus hijas de 14 años.</p>
     <div class="hero-dates">
-      <div class="date-chip"><strong>Lun 3</strong> · Llegada + South Bank</div>
-      <div class="date-chip"><strong>Mar 4</strong> · Monumentos</div>
-      <div class="date-chip"><strong>Mié 5</strong> · Museos + Magia</div>
-      <div class="date-chip"><strong>Jue 6</strong> · Torres + Río</div>
-      <div class="date-chip"><strong>Vie 7</strong> · Despedida</div>
+      <div class="date-chip"><strong>Lun</strong> · Llegada + South Bank</div>
+      <div class="date-chip"><strong>Mar</strong> · Monumentos</div>
+      <div class="date-chip"><strong>Mié</strong> · Museos + Magia</div>
+      <div class="date-chip"><strong>Jue</strong> · Torres + Río</div>
+      <div class="date-chip"><strong>Vie</strong> · Despedida</div>
     </div>
-    <button class="hero-cta" onclick="document.querySelector('.nav-btn').click()">
-      Explorar plan →
-    </button>
+    <button class="hero-cta" onclick="document.querySelector('.nav-btn').click()"> Explorar plan →</button>
   </div>
 </section>
 
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <button class="nav-btn active" data-section="plan">🗓️ Plan diario</button>
-    <button class="nav-btn" data-section="mapa">📍 Mapa</button>
+    <button class="nav-btn active" data-section="plan">🗓️ Plan</button>
+    <button class="nav-btn" data-section="presupuesto">💰 Presupuesto</button>
     <button class="nav-btn" data-section="transporte">🚇 Transporte</button>
-    <button class="nav-btn" data-section="monumentos">🏛️ Monumentos</button>
-    <button class="nav-btn" data-section="tiempo">🌤️ Tiempo</button>
+    <button class="nav-btn" data-section="mapa">📍 Mapa</button>
+    <button class="nav-btn" data-section="monumentos">🏛️ Atracciones</button>
     <button class="nav-btn" data-section="tips">💡 Tips</button>
   </div>
 </nav>
 
 <!-- PLAN DIARIO -->
 <section id="section-plan" class="section active">
-  <h2 class="section-title">Plan diario</h2>
-  <p class="section-sub">Rutas desde el hotel pensadas para andar 20-30 min entre paradas. Flexibles, adaptadas para niñas.</p>
+  <h2 class="section-title">🗓️ Plan diario</h2>
+  <p class="section-sub">Rutas caminando 20-30 min entre paradas. Precios reales 2026 verificados.</p>
 
-  <!-- MONDAY -->
+  <!-- LUNES -->
   <div class="day-card">
     <div class="day-header open" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Lunes — Llegada + South Bank</h3>
+      <h3>🇬🇧 Lunes — Llegada + South Bank <span class="tag tag-green">~£35 adulto</span></h3>
       <span class="arrow">▼</span>
     </div>
     <div class="day-body open">
-      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Llegada, check-in, primera toma de contacto con Londres. Todo caminando por la orilla del Támesis.</p>
+      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Check-in, primera toma de contacto. Todo caminando por la orilla del Támesis.</p>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Hotel → Elephant & Castle</h4><p>5 min andando. Explora el barrio, compra Oyster cards en la estación.</p></div>
+        <div class="info"><h4>Hotel → Elephant & Castle</h4><p>5 min. Compra Oyster Cards + Young Visitor Discount en el mostrador. Necesitas los pasaportes de las niñas.</p></div>
       </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Elephant & Castle → Waterloo (Northern Line)</h4><p>2 paradas, 5 min. Desde Waterloo todo es caminando.</p></div>
+        <div class="info"><h4>Elephant & Castle → Waterloo (Bakerloo/Northern)</h4><p>2 paradas. Con Young Visitor Discount: ~£1.25 cada una.</p></div>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>London Eye</h4><p>10 min andando desde Waterloo. Imprescindible con niñas. 🎡</p></div>
+        <div class="info"><h4>London Eye 🎡</h4><p>10 min andando. Entrada: adulto ~£38 online, niñas (14-15) ~£33. Reservad online antes.</p></div>
+        <span class="price-tag price-paid">£38 + £33</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>South Bank Walk → Tate Modern</h4><p>15 min por la orilla. Artistas callejeros, vistas, el Millennium Bridge.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Borough Market</h4><p>5 min cruzando el Millennium Bridge. Comida del mundo, cena informal. 🥟</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>London Bridge → Elephant & Castle (Northern Line)</h4><p>2 paradas, 10 min. Vuelta al hotel.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TUESDAY -->
-  <div class="day-card">
-    <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Martes — Monumentos clásicos</h3>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="day-body">
-      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">El Londres de las postales. Walking tour por los iconos.</p>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>Elephant & Castle → Westminster (Jubilee via Bakerloo/lift)</h4><p>Cambio en Baker Street o andar desde Waterloo. 15 min total.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Big Ben + Parliament</h4><p>Llegas y lo tienes al lado. Fotos obligatorias. 📸</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Westminster Abbey</h4><p>5 min andando. Entrada ~£27 (menores gratis o descuento).</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>St James's Park → Buckingham Palace</h4><p>15 min por el parque. Cambio de guardia a las 11:00 si llegáis.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Piccadilly Circus + Chinatown</h4><p>20 min andando por The Mall y Regent St. Cena en Chinatown 🥟</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>Piccadilly Circus → Elephant & Castle (Bakerloo Line)</h4><p>7 paradas, 15 min directo.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WEDNESDAY -->
-  <div class="day-card">
-    <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Miércoles — Museos + Magia</h3>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="day-body">
-      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Museos gratis y un toque de magia. Día pensado para niñas.</p>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Imperial War Museum</h4><p>5 min andando del hotel. Gratis. Tiene la exposición de la Guerra Fría y la 1ª Guerra Mundial. Impactante.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>Elephant & Castle → South Kensington (Northern → Piccadilly)</h4><p>Cambio en Leicester Square. 20 min total.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Natural History Museum</h4><p>GRATIS. El museo favorito de los niños. Dinosaurios, terremotos, gemas. 🦕</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Science Museum</h4><p>Al lado. GRATIS. Cohetes, aviones, interactivo. 🚀</p></div>
+        <div class="info"><h4>South Bank Walk → Tate Modern</h4><p>15 min. Arte callejero, Millennium Bridge, vistas. Tate Modern GRATIS.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon food">🍽️</div>
-        <div class="info"><h4>Comida en South Kensington</h4><p>Zona llena de opciones: Wasabi (sushi barato), Franco Manca (pizza), o el mercado de South Ken.</p></div>
+        <div class="info"><h4>Cena en Borough Market</h4><p>5 min cruzando el puente. Comida del mundo. Presupuesto ~£30-40 los 3.</p></div>
+        <span class="price-tag price-paid">~£35</span>
       </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>South Kensington → Covent Garden (Piccadilly)</h4><p>5 paradas, 10 min.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Covent Garden</h4><p>Artistas callejeros, tiendas, el Mercado. Mágico de verdad. 🎭</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Harry Potter Shop (Platform 9¾)</h4><p>10 min andando hasta King's Cross o tiendas oficiales en Covent Garden. 🧙</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>Vuelta al hotel (Northern Line)</h4><p>Covent Garden → Elephant & Castle, 15 min.</p></div>
+        <div class="info"><h4>London Bridge → Elephant & Castle (Northern)</h4><p>2 paradas, 10 min a casa.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- THURSDAY -->
+  <!-- MARTES -->
   <div class="day-card">
     <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Jueves — Torres + Río</h3>
+      <h3>🇬🇧 Martes — Monumentos clásicos <span class="tag tag-gold">~£44 adulto</span></h3>
       <span class="arrow">▼</span>
     </div>
     <div class="day-body">
-      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Torre de Londres, Tower Bridge, y un paseo en barco por el Támesis.</p>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Elephant & Castle → Tower Hill (District/Circle)</h4><p>Cambio en Embankment o Blackfriars. 20 min.</p></div>
+        <div class="info"><h4>Elephant & Castle → Westminster</h4><p>Bakerloo directo o andando 25 min.</p></div>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Big Ben + Parliament 📸</h4><p>Gratis verlos desde fuera. Fotos.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon attraction">⛪</div>
+        <div class="info"><h4>Westminster Abbey</h4><p>5 min. Adulto ~£27, niñas ~£12 (6-17 años). Merece la pena.</p></div>
+        <span class="price-tag price-paid">£27 + £12</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>St James's Park → Buckingham Palace</h4><p>15 min por el parque. Cambio de guardia 11:00 si llegáis.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Piccadilly Circus + Chinatown</h4><p>20 min por The Mall. Cena en Chinatown 🥟 ~£35-45 los 3.</p></div>
+        <span class="price-tag price-paid">~£40</span>
+      </div>
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>Piccadilly Circus → Eleph&Castle (Bakerloo)</h4><p>Directo, 15 min.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIÉRCOLES -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+      <h3>🇬🇧 Miércoles — Museos + Magia <span class="tag tag-green">~£5 adulto</span></h3>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="day-body">
+      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">El día más barato y uno de los mejores. Casi todo GRATIS.</p>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Imperial War Museum</h4><p>5 min del hotel. GRATIS. Tanques, aviones, historia.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>→ South Kensington (Northern→Piccadilly)</h4><p>~20 min.</p></div>
+      </div>
+      <div class="route-step">
+        <div class="icon attraction">🦕</div>
+        <div class="info"><h4>Natural History Museum</h4><p>GRATIS. Dinosaurios, terremotos, gemas. El favorito de los niños.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Science Museum</h4><p>Al lado. GRATIS. Cohetes, aviones, interactivo.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon food">🍽️</div>
+        <div class="info"><h4>Comida en South Ken</h4><p>Franco Manca (pizza), Wasabi (sushi). ~£30-40.</p></div>
+        <span class="price-tag price-paid">~£35</span>
+      </div>
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>→ Covent Garden (Piccadilly)</h4><p>10 min.</p></div>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Covent Garden 🎭</h4><p>Artistas callejeros, tiendas, Harry Potter Shop.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>Vuelta (Northern Line)</h4><p>15 min.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUEVES -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+      <h3>🇬🇧 Jueves — Torres + Río <span class="tag tag-gold">~£79 adulto</span></h3>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="day-body">
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>→ Tower Hill (District/Circle)</h4><p>~20 min con cambio.</p></div>
       </div>
       <div class="route-step">
         <div class="icon attraction">🏰</div>
-        <div class="info"><h4>Tower of London</h4><p>Entrada ~£35 (niñas descuento). Joyas de la Corona, torres, cuervos. Mínimo 2-3 horas.</p></div>
+        <div class="info"><h4>Tower of London</h4><p>Adulto £37, niñas £18.50. Joyas de la Corona, cuervos. 2-3h mínimo.</p></div>
+        <span class="price-tag price-paid">£37 + £18.50</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Tower Bridge</h4><p>Lo cruzas. La exposición del puente merece la pena (£10). Vistas espectaculares. 🌉</p></div>
+        <div class="info"><h4>Tower Bridge Exhibition</h4><p>Adulto ~£13.40, niñas ~£7. Paseo de cristal en lo alto.</p></div>
+        <span class="price-tag price-paid">£13.40 + £7</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Barco por el Támesis (Uber Boat)</h4><p>De Tower Pier a Westminster Pier. 20 min, vistas únicas. Con Oyster. ⛴️</p></div>
+        <div class="info"><h4>Uber Boat → Westminster ⛴️</h4><p>De Tower Pier a Westminster. Con Oyster: ~£5 adulto, ~£2.50 niñas.</p></div>
+        <span class="price-tag price-paid">£5 + £2.50</span>
+      </div>
+      <div class="route-step">
+        <div class="icon attraction">🐟</div>
+        <div class="info"><h4>SEA LIFE London Aquarium</h4><p>Junto al London Eye. Adulto ~£30, niñas ~£24. Tiburones, pingüinos.</p></div>
+        <span class="price-tag price-paid">£30 + £24</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>London Aquarium (SEA LIFE)</h4><p>Junto al London Eye. Tiburones, pingüinos, peces de colores. Las niñas flipan. 🐟</p></div>
+        <div class="info"><h4>Cena en County Hall</h4><p>Zona con restaurantes, vista al Big Ben iluminado.</p></div>
+        <span class="price-tag price-paid">~£40</span>
       </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Vuelta al hotel</h4><p>Waterloo → Elephant & Castle (Bakerloo o andando).</p></div>
+        <div class="info"><h4>Waterloo → Eleph&Castle</h4><p>2 paradas, vuelta rápida.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- FRIDAY -->
+  <!-- VIERNES -->
   <div class="day-card">
     <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Viernes — Despedida</h3>
+      <h3>🇬🇧 Viernes — Despedida <span class="tag tag-green">~£10 adulto</span></h3>
       <span class="arrow">▼</span>
     </div>
     <div class="day-body">
-      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Último día. Algo especial para cerrar el viaje.</p>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Check-out + dejar maletas</h4><p>Preguntar en el hotel si guardan equipaje.</p></div>
+        <div class="info"><h4>Check-out + dejar maletas</h4><p>Pregunta si guardan equipaje en el hotel.</p></div>
       </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Elephant & Castle → Camden Town (Northern Line)</h4><p>Directo, 15 min.</p></div>
+        <div class="info"><h4>→ Camden Town (Northern directo)</h4><p>15 min.</p></div>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Camden Market</h4><p>El mercado más famoso de Londres. Ropa vintage, artesanía, comida callejera de todo el mundo.</p></div>
+        <div class="info"><h4>Camden Market</h4><p>El mercado más famoso. Ropa vintage, comida callejera, artesanía.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Paseo por el Regent's Canal</h4><p>Desde Camden hasta Little Venice o Primrose Hill (vistas de todo London).</p></div>
+        <div class="info"><h4>Regent's Canal → Primrose Hill</h4><p>Paseo junto al canal. Primrose Hill tiene las mejores vistas de Londres.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon food">🍽️</div>
-        <div class="info"><h4>Comida de despedida</h4><p>Fish & chips tradicional en Camden. O algo que las niñas quieran repetir.</p></div>
+        <div class="info"><h4>Fish & Chips de despedida</h4><p>En Camden, Poppie's Fish & Chips. Clásico británico.</p></div>
+        <span class="price-tag price-paid">~£35</span>
       </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Al aeropuerto</h4><p>Camden → King's Cross (Northern) + Gatwick Express / Heathrow Express / Stansted según toque.</p></div>
+        <div class="info"><h4>→ King's Cross → Aeropuerto</h4><p>Gatwick Express / Heathrow Express / Stansted según toque.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MAPA -->
-<section id="section-mapa" class="section">
-  <h2 class="section-title">📍 Mapa del hotel</h2>
-  <p class="section-sub">18 Amelia Street, Walworth, London SE17 3PY — Elephant & Castle</p>
-  <div id="map"></div>
-  <div class="card-grid">
-    <div class="card">
-      <h3>🚶 5 min</h3>
-      <p><strong>Elephant & Castle</strong> — estación de metro, buses, supermercados, restaurantes</p>
-    </div>
-    <div class="card">
-      <h3>🚶 5 min</h3>
-      <p><strong>Imperial War Museum</strong> — museo gratuito, imprescindible</p>
-    </div>
-    <div class="card">
-      <h3>🚶 10 min</h3>
-      <p><strong>Elephant Park / Castle Square</strong> — zonas verdes, mercados callejeros</p>
-    </div>
-    <div class="card">
-      <h3>🚇 15 min</h3>
-      <p><strong>London Bridge / Borough Market</strong> — en metro directo Northern Line</p>
-    </div>
+<!-- PRESUPUESTO -->
+<section id="section-presupuesto" class="section">
+  <h2 class="section-title">💰 Presupuesto detallado</h2>
+  <p class="section-sub">Precios reales 2026. Tus hijas tienen 14 años → tarifa infantil (5-15).</p>
+
+  <h3 style="color:var(--gold);margin-bottom:1rem;">Atracciones</h3>
+  <table class="budget-table">
+    <tr><th>Día</th><th>Atracción</th><th>Tú</th><th>Cada niña</th><th>Total</th></tr>
+    <tr><td>Lun</td><td>London Eye 🎡</td><td class="money">£38</td><td class="money">£33</td><td class="money">£104</td></tr>
+    <tr><td>Lun</td><td>Tate Modern</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mar</td><td>Westminster Abbey ⛪</td><td class="money">£27</td><td class="money">£12</td><td class="money">£51</td></tr>
+    <tr><td>Mar</td><td>Buckingham Palace (exterior)</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mié</td><td>Imperial War Museum</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mié</td><td>Natural History Museum 🦕</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mié</td><td>Science Museum 🚀</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mié</td><td>Covent Garden</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Jue</td><td>Tower of London 🏰</td><td class="money">£37</td><td class="money">£18.50</td><td class="money">£74</td></tr>
+    <tr><td>Jue</td><td>Tower Bridge Exhibition 🌉</td><td class="money">£13.40</td><td class="money">£7</td><td class="money">£27.40</td></tr>
+    <tr><td>Jue</td><td>Uber Boat ⛴️</td><td class="money">£5</td><td class="money">£2.50</td><td class="money">£10</td></tr>
+    <tr><td>Jue</td><td>SEA LIFE Aquarium 🐟</td><td class="money">£30</td><td class="money">£24</td><td class="money">£78</td></tr>
+    <tr><td>Vie</td><td>Camden Market</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr class="total"><td colspan="2"><strong>TOTAL ATRACCIONES</strong></td><td class="money">£150.40</td><td class="money">£97</td><td class="money">£344.40</td></tr>
+  </table>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">Comidas (estimado)</h3>
+  <table class="budget-table">
+    <tr><th>Concepto</th><th>Coste/día</th><th>Total</th></tr>
+    <tr><td>Desayunos (supermercado/café)</td><td class="money">~£15</td><td class="money">£75</td></tr>
+    <tr><td>Comidas (5 días)</td><td class="money">~£35</td><td class="money">£175</td></tr>
+    <tr><td>Cenas (5 días)</td><td class="money">~£40</td><td class="money">£200</td></tr>
+    <tr><td>Snacks/helados 💫</td><td class="money">~£10</td><td class="money">£50</td></tr>
+    <tr class="total"><td><strong>TOTAL COMIDAS</strong></td><td></td><td class="money">~£500</td></tr>
+  </table>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">Transporte</h3>
+  <table class="budget-table">
+    <tr><th>Concepto</th><th>Tú</th><th>Cada niña</th><th>Nota</th></tr>
+    <tr><td>Metro (con Oyster)</td><td class="money">~£5-8/día</td><td class="money">~£2.50-4/día</td><td>Tope diario ~£8 adulto</td></tr>
+    <tr><td>Bus</td><td class="money">£1.75/viaje</td><td class="money free">GRATIS</td><td>Jóvenes <18 gratis bus</td></tr>
+    <tr><td>Oyster Card depósito</td><td class="money">£7</td><td class="money">£7</td><td>Recuperable al devolver</td></tr>
+    <tr class="total"><td><strong>Transporte 5 días</strong></td><td class="money">~£40</td><td class="money">~£20</td><td class="money free">Total ~£60</td></tr>
+  </table>
+
+  <div class="card" style="margin-top:2rem;">
+    <h3>💰 Presupuesto total estimado</h3>
+    <p style="font-size:1.2rem;font-weight:700;color:var(--gold);margin:0.5rem 0;">~£900 para los 3 (todo incluido)</p>
+    <p style="font-size:0.85rem;">Atracciones £344 + Comidas £500 + Transporte £60. Sin contar hotel y vuelos.</p>
+    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.8rem;">💡 El London Pass (3 días: adulto £179 + 2 niñas £119 cada una = £417) SALE MÁS CARO que pagar por separado (£344). Además el London Eye NO entra en el pase estándar.</p>
   </div>
 </section>
 
 <!-- TRANSPORTE -->
 <section id="section-transporte" class="section">
-  <h2 class="section-title">🚇 Transporte</h2>
-  <p class="section-sub">Todo lo que necesitas para moverte desde el hotel.</p>
+  <h2 class="section-title">🚇 Transporte público</h2>
+  <p class="section-sub">Guía completa para moverte con tus hijas de 14 años.</p>
 
-  <h3 style="color:var(--gold);margin-bottom:1rem;">Estaciones cercanas</h3>
-  <div class="transport-grid" style="margin-bottom:2rem;">
+  <div class="tip-card" style="border-left-color:var(--accent);margin-bottom:2rem;">
+    <h4>🎯 LO PRIMERO EL LUNES — Young Visitor Discount</h4>
+    <p><strong>Sin esto, las niñas pagan tarifa completa.</strong> Con esto, el bus les sale GRATIS y el metro al 50%.</p>
+  </div>
+
+  <h3 style="color:var(--gold);margin-bottom:1rem;">Gestos el primer día en Elephant & Castle</h3>
+  <div class="step-card">
+    <div class="step-num">1</div>
+    <div><strong>Compra 3 Oyster Cards</strong> en la máquina de la estación. £7 de depósito cada una (recuperable). Cárgales ~£20 cada una.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-num">2</div>
+    <div><strong>Ve al mostrador</strong> (ticket office) con las niñas y sus <strong>pasaportes</strong>. Pide <em>"Young Visitor Discount for both, they're 14"</em>.</div>
+  </div>
+  <div class="step-card">
+    <div class="step-num">3</div>
+    <div><strong>Te lo activan al instante</strong> en sus tarjetas. Válido 14 días. El bus les sale <strong>GRATIS</strong>, el metro <strong>50% descuento</strong>.</div>
+  </div>
+
+  <div class="card-grid" style="margin:2rem 0;">
+    <div class="card">
+      <h3>🎫 Oyster Card</h3>
+      <p>Pay-as-you-go. Toca in & out en cada viaje. Tope diario (~£8 adulto, ~£4 niñas). Mucho más barato que billete suelto. La devuelves al final y recuperas el depósito.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Contactless</h3>
+      <p>Tu tarjeta bancaria o móvil funciona igual que la Oyster. Mismo tope diario. Las niñas NO pueden usar contactless normal — necesitan la Oyster con descuento.</p>
+    </div>
+    <div class="card">
+      <h3>🚌 Buses</h3>
+      <p>Para las niñas: <strong>GRATIS</strong> con Young Visitor Discount. Para ti: £1.75 por viaje con tope diario de ~£5. Las rutas 1, 68, 168, 172 pasan por Elephant & Castle.</p>
+    </div>
+    <div class="card">
+      <h3>⛴️ Uber Boat</h3>
+      <p>Acepta Oyster. De Tower Pier a Westminster: ~£5 adulto, ~£2.50 niñas. 20 min de viaje con las mejores vistas de Londres.</p>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">Estaciones cercanas al hotel</h3>
+  <div class="transport-grid">
     <div class="transport-card">
       <h4>Elephant & Castle</h4>
       <p style="font-size:0.8rem;color:var(--text-dim);">8 min andando</p>
       <div class="line"><span class="northern">Northern</span><span class="bakerloo">Bakerloo</span></div>
-      <p style="font-size:0.8rem;color:var(--text-dim);">Líneas: Bank y Charing Cross branches</p>
+      <p style="font-size:0.8rem;color:var(--text-dim);">Tu estación principal. Bank y Charing Cross branches.</p>
     </div>
     <div class="transport-card">
       <h4>Kennington</h4>
       <p style="font-size:0.8rem;color:var(--text-dim);">12 min andando</p>
       <div class="line"><span class="northern">Northern</span></div>
-      <p style="font-size:0.8rem;color:var(--text-dim);">Bifurcación Northern Line</p>
     </div>
     <div class="transport-card">
       <h4>Lambeth North</h4>
@@ -690,272 +633,198 @@ footer {
       <h4>Waterloo</h4>
       <p style="font-size:0.8rem;color:var(--text-dim);">20 min andando / 5 min metro</p>
       <div class="line"><span class="bakerloo">Bakerloo</span><span class="jubilee">Jubilee</span><span class="northern">Northern</span></div>
-      <p style="font-size:0.8rem;color:var(--text-dim);">Estación principal. Conexión con trenes, metro, buses.</p>
+      <p style="font-size:0.8rem;color:var(--text-dim);">Hub principal. Trenes nacionales, metro, buses.</p>
     </div>
   </div>
 
-  <h3 style="color:var(--gold);margin-bottom:1rem;">🎫 Consejos de transporte</h3>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Oyster Card</h3>
-      <p>Compra una Oyster en cualquier estación. Toca in & out. Mucho más barato que billete suelto. Las niñas viajan gratis o <a href="#" style="color:var(--gold);">con descuento</a>.</p>
-    </div>
-    <div class="card">
-      <h3>Contactless</h3>
-      <p>Tu móvil o tarjeta contactless funciona igual que la Oyster. Toca al entrar y salir. Te cobran el tope diario (~£8.50).</p>
-    </div>
-    <div class="card">
-      <h3>Buses</h3>
-      <p>Los buses son más lentos pero ves la ciudad. £1.75 por viaje, con tope diario. Las rutas 1, 68, 168, 172 pasan cerca del hotel.</p>
-    </div>
-    <div class="card">
-      <h3>Uber Boat</h3>
-      <p>El barco por el Támesis acepta Oyster. Muy recomendable para un día: de Westminster a Greenwich o Tower. 🚢</p>
-    </div>
+  <div class="tip-card" style="margin-top:1.5rem;">
+    <h4>💡 Datos útiles</h4>
+    <p>• Las Oyster Cards se recargan en cualquier estación o máquina<br>
+    • Siempre toca IN y OUT en metro (si no, te cobran la tarifa máxima)<br>
+    • En bus solo toca IN (no hay barrera de salida)<br>
+    • Descarga <strong>Citymapper</strong> — es mejor que Google Maps para Londres<br>
+    • El metro cierra ~00:30. Los viernes hay Night Tube en algunas líneas (Jubilee, Victoria, Central)</p>
   </div>
 </section>
 
-<!-- MONUMENTOS -->
+<!-- MAPA -->
+<section id="section-mapa" class="section">
+  <h2 class="section-title">📍 Mapa</h2>
+  <p class="section-sub">18 Amelia Street, Walworth, London SE17 3PY</p>
+  <div id="map"></div>
+  <div class="card-grid">
+    <div class="card"><h3>🚶 5 min</h3><p><strong>Elephant & Castle</strong> — metro, buses, supermercados</p></div>
+    <div class="card"><h3>🚶 5 min</h3><p><strong>Imperial War Museum</strong> — gratis</p></div>
+    <div class="card"><h3>🚶 10 min</h3><p><strong>Elephant Park</strong> — zona verde, mercadillos</p></div>
+    <div class="card"><h3>🚇 15 min</h3><p><strong>London Bridge / Borough</strong> — Northern directa</p></div>
+  </div>
+</section>
+
+<!-- ATRACCIONES -->
 <section id="section-monumentos" class="section">
-  <h2 class="section-title">🏛️ Monumentos</h2>
-  <p class="section-sub">Toca el altavoz 🔊 para escuchar la historia de cada lugar.</p>
+  <h2 class="section-title">🏛️ Atracciones</h2>
+  <p class="section-sub">Precios reales 2026. Toca 🔊 para oír la historia de cada sitio.</p>
   <div class="card-grid">
     <div class="landmark-card">
       <div class="landmark-img">🎡</div>
       <div class="landmark-body">
         <h3>London Eye</h3>
-        <p>La noria gigante del milenio. 135 metros, 30 min de viaje. Mejor al atardecer. Las niñas alucinan con las vistas de todo Londres.</p>
-        <button class="audio-btn" onclick="speak(this,'El London Eye es la noria de observación más famosa del mundo. Fue construida para celebrar el año 2000. Desde arriba se ve todo Londres: el Big Ben, el Parlamento, la Catedral de San Pablo. El viaje dura 30 minutos y las cápsulas de cristal te hacen sentir que vuelas sobre la ciudad.')">🔊 Escuchar</button>
+        <div class="price-line">Adulto £38 · Niña (14) £33 · 🕐 30 min</div>
+        <p>La noria gigante del milenio. 135 metros. Mejor al atardecer. Reserva online antes para evitar colas.</p>
+        <button class="audio-btn" onclick="speak(this,'El London Eye es la noria de observación más famosa del mundo. Mide 135 metros y fue construida para celebrar el año 2000. Desde arriba se ve todo Londres: el Big Ben, el Parlamento, la Catedral de San Pablo. El viaje dura 30 minutos.')">🔊 Escuchar</button>
       </div>
     </div>
     <div class="landmark-card">
       <div class="landmark-img">🏰</div>
       <div class="landmark-body">
         <h3>Tower of London</h3>
-        <p>Castillo de 1000 años de historia. Aquí estuvieron presos Ana Bolena y Guy Fawkes. Las joyas de la corona británica están guardadas aquí. Los cuervos son los protectores de la torre.</p>
-        <button class="audio-btn" onclick="speak(this,'La Torre de Londres tiene casi mil años. Fue prisión, palacio real y ahora es donde guardan las joyas de la corona. Dicen que si los cuervos se van, la torre se caerá. Por eso siempre hay al menos 6 cuervos viviendo aquí. Las niñas disfrutan mucho viendo a los guardianes con sus uniformes rojos.')">🔊 Escuchar</button>
+        <div class="price-line">Adulto £37 · Niña (14) £18.50 · 🕐 2-3h</div>
+        <p>Castillo de 1000 años. Joyas de la Corona, cuervos legendarios, guardianes con uniformes rojos. Imprescindible.</p>
+        <button class="audio-btn" onclick="speak(this,'La Torre de Londres tiene casi mil años. Fue prisión, palacio real y arsenal. Hoy guarda las joyas de la corona británica. Dicen que si los cuervos se van, la torre se caerá. Siempre hay al menos 6 cuervos viviendo aquí.')">🔊 Escuchar</button>
       </div>
     </div>
     <div class="landmark-card">
       <div class="landmark-img">🌉</div>
       <div class="landmark-body">
         <h3>Tower Bridge</h3>
-        <p>No confundir con London Bridge. Este puente se levanta para dejar pasar barcos. Tiene un paseo de cristal en lo alto. Las torres victorianas son icónicas.</p>
-        <button class="audio-btn" onclick="speak(this,'El Tower Bridge es el puente más famoso de Londres. Cuando se construyó en 1894 era el puente levadizo más grande del mundo. Todavía hoy se levanta unas 800 veces al año para dejar pasar barcos. Lo mejor es subir al paseo de cristal y ver el tráfico debajo de tus pies.')">🔊 Escuchar</button>
+        <div class="price-line">Adulto £13.40 · Niña (14) £7 · 🕐 1h</div>
+        <p>El puente más famoso. Paseo de cristal en lo alto, vistas panorámicas, sala de máquinas victoriana.</p>
+        <button class="audio-btn" onclick="speak(this,'El Tower Bridge es el puente levadizo más famoso del mundo. Se inauguró en 1894. Todavía hoy se levanta 800 veces al año para dejar pasar barcos. Lo mejor es subir al paseo de cristal a 42 metros de altura y ver el tráfico bajo tus pies.')">🔊 Escuchar</button>
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">🕍</div>
+      <div class="landmark-img">⛪</div>
       <div class="landmark-body">
         <h3>Westminster Abbey</h3>
-        <p>Iglesia gótica donde coronan a los reyes. Aquí se casaron William y Kate. Lleva 1000 años en pie. Dentro hay tumbas de personajes famosos como Newton, Dickens y Darwin.</p>
-        <button class="audio-btn" onclick="speak(this,'La Abadía de Westminster es el edificio más antiguo de Londres que sigue en uso. Todos los reyes de Inglaterra han sido coronados aquí desde 1066. Es como un museo de la historia británica: hay científicos, escritores, músicos y reyes enterrados en sus muros.')">🔊 Escuchar</button>
+        <div class="price-line">Adulto £27 · Niña (14) £12 · 🕐 1.5h</div>
+        <p>Iglesia gótica del siglo XI. Aquí coronan a los reyes. Tumbas de Newton, Dickens, Darwin.</p>
+        <button class="audio-btn" onclick="speak(this,'La Abadía de Westminster es el edificio más antiguo de Londres que sigue en uso. Todos los reyes desde 1066 han sido coronados aquí. Es como un museo de la historia británica con científicos, escritores y reyes enterrados en sus muros.')">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">🐟</div>
+      <div class="landmark-body">
+        <h3>SEA LIFE London Aquarium</h3>
+        <div class="price-line">Adulto ~£30 · Niña (14) ~£24 · 🕐 1.5h</div>
+        <p>Tiburones, pingüinos, peces de colores y un túnel oceánico. A las niñas les encanta. Junto al London Eye.</p>
+        <button class="audio-btn" onclick="speak(this,'El acuario SEA LIFE de Londres tiene un túnel oceánico donde los tiburones nadan sobre tu cabeza. Hay pingüinos, rayas, caballitos de mar y una zona de peces de colores brillantes. Está justo al lado del London Eye.')">🔊 Escuchar</button>
       </div>
     </div>
     <div class="landmark-card">
       <div class="landmark-img">🧙</div>
       <div class="landmark-body">
-        <h3>Harry Potter Studios</h3>
-        <p>Si os gusta Harry Potter, el estudio en Watford es el plan definitivo. Reservad con antelación. El viaje en tren desde Euston son 20 min.</p>
-        <button class="audio-btn" onclick="speak(this,'Los estudios de Harry Potter están a 20 minutos en tren desde la estación de Euston. Es el sueño de cualquier fan: ves el comedor de Hogwarts, el callejón Diagon, el andén 9 y 3 cuartos. Puedes montar en escoba voladora y tomar mantequilla de cerveza. Se necesita medio día entero para verlo todo.')">🔊 Escuchar</button>
+        <h3>Harry Potter Studio</h3>
+        <div class="price-line">Adulto ~£53 · Niña (14) ~£43 · 🕐 4h</div>
+        <p>En Watford, 20 min en tren desde Euston. El comedor de Hogwarts, Diagon Alley, escobas voladoras. Reserva ANTES.</p>
+        <button class="audio-btn" onclick="speak(this,'Los estudios de Harry Potter están a 20 minutos en tren de Euston. Es el sueño de cualquier fan: ves el comedor de Hogwarts, el callejón Diagon, el andén 9 y 3 cuartos. Puedes montar en escoba voladora. Se necesita medio día.')">🔊 Escuchar</button>
       </div>
     </div>
     <div class="landmark-card">
       <div class="landmark-img">🎭</div>
       <div class="landmark-body">
-        <h3>West End Shows</h3>
-        <p>Un musical en Londres es una experiencia única. Para niñas: <strong>Matilda</strong> (Cambridge Theatre), <strong>Harry Potter y el legado maldito</strong>, <strong>El Rey León</strong> (Lyceum).</p>
-        <button class="audio-btn" onclick="speak(this,'Ver un musical en el West End de Londres es una de las mejores cosas que puedes hacer. Para niñas, Matilda es perfecto: canciones pegadizas y una historia divertida. El Rey León tiene marionetas increíbles. Harry Potter es como ver la película en vivo con magia real. Los teatros están todos en la zona de Covent Garden y Piccadilly.')">🔊 Escuchar</button>
+        <h3>West End Musical</h3>
+        <div class="price-line">Desde ~£30 · 🕐 2.5h</div>
+        <p>Para niñas de 14: <strong>Matilda</strong> (Cambridge Theatre), <strong>El Rey León</strong> (Lyceum), <strong>Harry Potter</strong> (Palace). Una experiencia única.</p>
+        <button class="audio-btn" onclick="speak(this,'Ver un musical en el West End de Londres es mágico. Para niñas de 14, Matilda es perfecto con canciones pegadizas. El Rey León tiene marionetas increíbles que parecen reales. Todos los teatros están en Covent Garden y Piccadilly.')">🔊 Escuchar</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TIEMPO -->
-<section id="section-tiempo" class="section">
-  <h2 class="section-title">🌤️ Tiempo en Londres</h2>
-  <p class="section-sub">Previsión orientativa para primeros de agosto. Londres es impredecible: lluvia fina y sol alternándose.</p>
-  <div class="weather-grid">
-    <div class="weather-card">
-      <div class="day">Lunes 4</div>
-      <div class="temp">21°</div>
-      <div class="desc">☁️ Parcial nublado</div>
-    </div>
-    <div class="weather-card">
-      <div class="day">Martes 5</div>
-      <div class="temp">22°</div>
-      <div class="desc">⛅ Sol y nubes</div>
-    </div>
-    <div class="weather-card">
-      <div class="day">Miércoles 6</div>
-      <div class="temp">20°</div>
-      <div class="desc">🌦️ Lluvia ligera</div>
-    </div>
-    <div class="weather-card">
-      <div class="day">Jueves 7</div>
-      <div class="temp">23°</div>
-      <div class="desc">☀️ Soleado</div>
-    </div>
-    <div class="weather-card">
-      <div class="day">Viernes 8</div>
-      <div class="temp">21°</div>
-      <div class="desc">⛅ Nubes altas</div>
-    </div>
-  </div>
-  <div class="tip-card">
-    <h4>🌧️ Lluvia en Londres</h4>
-    <p>SIEMPRE llevar paraguas plegable. Aunque el cielo esté despejado. En serio. Es Londres. Una chaqueta fina impermeable es mejor que un paraguas para las niñas porque tienen las manos libres.</p>
-  </div>
-</section>
-
 <!-- TIPS -->
 <section id="section-tips" class="section">
-  <h2 class="section-title">💡 Tips para el viaje</h2>
-  <p class="section-sub">Todo lo que necesitas saber para que el viaje con tus hijas sea perfecto.</p>
+  <h2 class="section-title">💡 Tips + Packing</h2>
+  <p class="section-sub">Todo para que el viaje con tus hijas sea perfecto.</p>
 
-  <h3 style="color:var(--gold);margin-bottom:1rem;">🎒 Qué llevar</h3>
+  <h3 style="color:var(--gold);margin-bottom:1rem;">🎒 Packing list</h3>
   <div class="packing-list" style="margin-bottom:2rem;">
     <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Chaqueta impermeable (cada una)</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Zapatillas cómodas (mucha caminata)</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Zapatillas cómodas (mucho andar)</span></div>
     <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Paraguas plegable × 3</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Adaptador enchufe UK (tipo G)</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Cargador portátil (power bank)</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Mochila pequeña para el día</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Botella de agua reutilizable</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Snacks para las caminatas</span></div>
-    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Oyster card o tarjeta contactless</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Adaptador UK (tipo G)</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Power bank para el móvil</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Mochila para el día</span></div>
     <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Pasaportes (obligatorio)</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Botella reutilizable</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Snacks para caminatas</span></div>
+    <div class="packing-item"><div class="check" onclick="this.classList.toggle('done')"></div><span>Tarjeta Revolut/Wise (sin comisiones)</span></div>
   </div>
 
-  <h3 style="color:var(--gold);margin-bottom:1rem;">🍽️ Dónde comer cerca del hotel</h3>
-  <div class="card-grid" style="margin-bottom:2rem;">
-    <div class="card">
-      <h3>Mercato Metropolitano</h3>
-      <p>En Elephant & Castle. Mercado italiano cubierto. Pizza, pasta, helado. Barato y delicioso. 🍕</p>
-    </div>
-    <div class="card">
-      <h3>Borough Market</h3>
-      <p>El mercado más famoso de Londres. A 15 min andando o 2 paradas de metro. Imprescindible para comer. 🥟</p>
-    </div>
-    <div class="card">
-      <h3>Tesco / Sainsbury's Local</h3>
-      <p>Hay supermercados cerca del hotel. Para desayunos, snacks, agua. Mucho más barato que comprar en atracciones.</p>
-    </div>
+  <h3 style="color:var(--gold);margin-bottom:1rem;">🍽️ Dónde comer</h3>
+  <div class="card-grid">
+    <div class="card"><h3>Mercato Metropolitano</h3><p>Elephant & Castle. Mercado italiano cubierto. Pizza, pasta, helado. Barato.</p></div>
+    <div class="card"><h3>Borough Market</h3><p>Imprescindible. A 15 min andando o 2 paradas de metro. Comida del mundo.</p></div>
+    <div class="card"><h3>Chinatown</h3><p>En Piccadilly. Cena barata y deliciosa. A las niñas les encanta.</p></div>
+    <div class="card"><h3>Tesco/Sainsbury's</h3><p>Supermercados cerca del hotel. Desayunos, agua, snacks. Mucho más barato.</p></div>
+    <div class="card"><h3>Camden Food Market</h3><p>El viernes. Comida callejera de todos los países. Económico y variado.</p></div>
   </div>
 
-  <h3 style="color:var(--gold);margin-bottom:1rem;">💰 Tips de dinero</h3>
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">📱 Apps imprescindibles</h3>
+  <div class="card-grid">
+    <div class="card"><h3>Citymapper</h3><p>Mejor que Google Maps para el transporte público. Tiempo real, rutas óptimas.</p></div>
+    <div class="card"><h3>Tube Map</h3><p>Mapa del metro offline. Nunca te pierdes.</p></div>
+    <div class="card"><h3>Google Maps offline</h3><p>Descarga el mapa de Londres antes. Sin datos funciona.</p></div>
+  </div>
+
+  <div class="tip-card" style="margin-top:2rem;">
+    <h4>🌧️ Lluvia en Londres</h4>
+    <p>Siempre llevar paraguas plegable. Aunque el cielo esté despejado. Es Londres. Una chaqueta fina impermeable es mejor que paraguas para las niñas (manos libres).</p>
+  </div>
   <div class="tip-card">
     <h4>💷 Efectivo vs Tarjeta</h4>
-    <p>En Londres se paga todo con tarjeta o móvil. No necesitas casi efectivo. Lleva tarjeta contactless (Revolut o similar sin comisiones).</p>
+    <p>En Londres se paga todo con tarjeta. No necesitas casi efectivo. Lleva Revolut o Wise para evitar comisiones.</p>
   </div>
   <div class="tip-card">
-    <h4>🎟️ London Pass</h4>
-    <p>Si vais a hacer 3-4 atracciones de pago (Tower, Eye, Westminster), el London Pass puede salir a cuenta. Calculadlo antes.</p>
-  </div>
-  <div class="tip-card">
-    <h4>🚶 Ritmo con niñas</h4>
-    <p>No intentes verlo todo. Con 2-3 cosas al día las niñas disfrutan más. Parques, helados, y sentarse a ver la gente cuenta como plan. Londres es una ciudad para disfrutar, no para conquistar.</p>
-  </div>
-
-  <h3 style="color:var(--gold);margin-bottom:1rem;">📱 Apps útiles</h3>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Citymapper</h3>
-      <p>Mejor que Google Maps para transporte público en Londres. Te dice exactamente qué bus/tube coger, andando, tiempo real.</p>
-    </div>
-    <div class="card">
-      <h3>Tube Map</h3>
-      <p>App oficial del metro de Londres. Funciona offline. Perfecta para el día a día.</p>
-    </div>
-    <div class="card">
-      <h3>Google Maps offline</h3>
-      <p>Descarga el mapa de Londres antes de salir. No necesitas datos para ver dónde estás.</p>
-    </div>
+    <h4>👧 Ritmo con niñas de 14</h4>
+    <p>Con 14 años ya aguantan bien, pero 2-3 cosas al día es el ritmo ideal. Parques, helados y sentarse a ver la gente también cuenta como plan. Pregúntales qué prefieren — ellas saben lo que les gusta.</p>
   </div>
 </section>
 
 <footer>
-  Hecho con ❤️ por NEO para David y sus hijas · Julio 2026<br>
+  Hecho por NEO para David y sus hijas · Julio 2026 · v2.0<br>
   18 Amelia Street · Walworth · London SE17 3PY
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-// NAVIGATION
-document.querySelectorAll('.nav-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById('section-' + btn.dataset.section).classList.add('active');
-    window.scrollTo({top: document.getElementById('nav').offsetTop - 10, behavior:'smooth'});
+// NAV
+document.querySelectorAll('.nav-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById('section-'+b.dataset.section).classList.add('active');
+    window.scrollTo({top:document.getElementById('nav').offsetTop-10,behavior:'smooth'});
   });
 });
 
 // MAP
-const hotel = [51.4894, -0.0957]; // 18 Amelia Street approx
-const map = L.map('map', { zoomControl:true }).setView(hotel, 15);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution:'© OpenStreetMap',
-  maxZoom:19
-}).addTo(map);
-
-L.marker(hotel).addTo(map)
-  .bindPopup('<b>18 Amelia Street</b><br>Walworth, London SE17 3PY')
-  .openPopup();
-
-const stations = [
-  { name:'Elephant & Castle', pos:[51.4947,-0.1003], lines:'Northern / Bakerloo' },
-  { name:'Kennington', pos:[51.4884,-0.1053], lines:'Northern' },
-  { name:'Lambeth North', pos:[51.4989,-0.1116], lines:'Bakerloo' },
-  { name:'Waterloo', pos:[51.5036,-0.1130], lines:'Northern / Bakerloo / Jubilee' },
-  { name:'London Bridge', pos:[51.5055,-0.0863], lines:'Northern / Jubilee' },
-];
-
-stations.forEach(s => {
-  L.circleMarker(s.pos, {
-    radius:6, fillColor:'#d4a843', color:'#fff', weight:2, opacity:1, fillOpacity:0.8
-  }).addTo(map).bindPopup(`<b>${s.name}</b><br>${s.lines}`);
+const hotel=[51.4894,-0.0957];
+const map=L.map('map',{zoomControl:true}).setView(hotel,15);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:19}).addTo(map);
+L.marker(hotel).addTo(map).bindPopup('<b>18 Amelia Street</b><br>Walworth, London SE17 3PY').openPopup();
+[{n:'Elephant & Castle',p:[51.4947,-0.1003]},{n:'Kennington',p:[51.4884,-0.1053]},{n:'Lambeth North',p:[51.4989,-0.1116]},{n:'Waterloo',p:[51.5036,-0.1130]},{n:'London Bridge',p:[51.5055,-0.0863]}].forEach(s=>{
+  L.circleMarker(s.p,{radius:6,fillColor:'#d4a843',color:'#fff',weight:2,opacity:1,fillOpacity:0.8}).addTo(map).bindPopup('<b>'+s.n+'</b>');
 });
-
-const landmarks = [
-  { name:'Imperial War Museum', pos:[51.4958,-0.1087] },
-  { name:'London Eye', pos:[51.5033,-0.1195] },
-  { name:'Big Ben', pos:[51.5007,-0.1246] },
-  { name:'Tate Modern', pos:[51.5076,-0.0984] },
-  { name:'Borough Market', pos:[51.5057,-0.0910] },
-];
-
-landmarks.forEach(l => {
-  L.marker(l.pos, { icon: L.divIcon({ className:'', html:'📍', iconSize:[20,20] }) })
-    .addTo(map).bindPopup(`<b>${l.name}</b>`);
+[{n:'Imperial War Museum',p:[51.4958,-0.1087]},{n:'London Eye',p:[51.5033,-0.1195]},{n:'Big Ben',p:[51.5007,-0.1246]},{n:'Tate Modern',p:[51.5076,-0.0984]},{n:'Borough Market',p:[51.5057,-0.0910]}].forEach(l=>{
+  L.marker(l.p,{icon:L.divIcon({className:'',html:'📍',iconSize:[20,20]})}).addTo(map).bindPopup('<b>'+l.n+'</b>');
 });
 
 // SPEECH
-let currentAudio = null;
-function speak(btn, text) {
-  if (currentAudio) { window.speechSynthesis.cancel(); }
-  if (btn.classList.contains('playing')) {
-    btn.classList.remove('playing');
-    btn.textContent = '🔊 Escuchar';
-    return;
+let currentAudio=null;
+function speak(btn,text){
+  if(currentAudio){window.speechSynthesis.cancel();}
+  if(btn.classList.contains('playing')){
+    btn.classList.remove('playing');btn.textContent='🔊 Escuchar';return;
   }
-  document.querySelectorAll('.audio-btn').forEach(b => {
-    b.classList.remove('playing');
-    b.textContent = '🔊 Escuchar';
-  });
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'es-ES';
-  utterance.rate = 0.9;
-  utterance.onstart = () => { btn.classList.add('playing'); btn.textContent = '⏹️ Parar'; };
-  utterance.onend = () => { btn.classList.remove('playing'); btn.textContent = '🔊 Escuchar'; };
-  utterance.onerror = () => { btn.classList.remove('playing'); btn.textContent = '🔊 Escuchar'; };
-  currentAudio = utterance;
-  window.speechSynthesis.speak(utterance);
+  document.querySelectorAll('.audio-btn').forEach(b=>{b.classList.remove('playing');b.textContent='🔊 Escuchar';});
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='es-ES';u.rate=0.9;
+  u.onstart=()=>{btn.classList.add('playing');btn.textContent='⏹️ Parar';};
+  u.onend=()=>{btn.classList.remove('playing');btn.textContent='🔊 Escuchar';};
+  u.onerror=()=>{btn.classList.remove('playing');btn.textContent='🔊 Escuchar';};
+  currentAudio=u;window.speechSynthesis.speak(u);
 }
-
-// Fix Leaflet tiles in dark
-document.querySelector('#map .leaflet-container')?.style?.setProperty('background','#1a1a2e');
 </script>
 </body>
 </html>
