@@ -268,6 +268,31 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
 .tag-gold { background:var(--gold-bg);color:var(--gold); }
 .tag-blue { background:var(--blue-bg);color:#4fc3f7; }
 .tag-red { background:var(--red-bg);color:var(--accent); }
+/* PHRASES */
+.phrase-row {
+  display:flex;align-items:center;gap:0.8rem;
+  background:var(--card);border-radius:10px;padding:0.7rem 1rem;
+  border:1px solid rgba(255,255,255,0.05);margin-bottom:0.5rem;
+  transition:border-color 0.3s;
+}
+.phrase-row:hover { border-color:rgba(212,168,67,0.25); }
+.phrase-row .en { font-weight:600;font-size:0.9rem; }
+.phrase-row .es { font-size:0.8rem;color:var(--text-dim); }
+.phrase-row .pron { font-size:0.72rem;color:var(--gold-dim);font-style:italic; }
+.phrase-btn {
+  flex-shrink:0;width:34px;height:34px;border-radius:50%;
+  border:1px solid rgba(212,168,67,0.3);background:transparent;
+  color:var(--gold);cursor:pointer;font-size:0.85rem;transition:all 0.3s;
+}
+.phrase-btn:hover,.phrase-btn.playing { background:var(--gold);color:var(--bg);border-color:var(--gold); }
+.magic-shop-card {
+  background:linear-gradient(135deg,#1a1a2e,#221a2e);
+  border:1px solid rgba(212,168,67,0.2);
+  border-radius:16px;padding:1.5rem;margin-bottom:1rem;
+}
+.magic-shop-card h4 { color:var(--gold);font-size:1.05rem;margin-bottom:0.3rem; }
+.magic-shop-card .addr { font-size:0.8rem;color:var(--text-dim);margin-bottom:0.5rem; }
+.magic-shop-card p { font-size:0.85rem;color:var(--text-dim); }
 @media(max-width:600px){
   .card-grid,.transport-grid,.packing-list { grid-template-columns:1fr; }
   .hero h1 { font-size:2.2rem; }
@@ -304,6 +329,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
     <button class="nav-btn" data-section="mapa">📍 Mapa</button>
     <button class="nav-btn" data-section="monumentos">🏛️ Atracciones</button>
     <button class="nav-btn" data-section="tips">💡 Tips</button>
+    <button class="nav-btn" data-section="frases">🗣️ Frases EN</button>
   </div>
 </nav>
 
@@ -442,6 +468,11 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <div class="icon walk">🚶</div>
         <div class="info"><h4>Covent Garden 🎭</h4><p>Artistas callejeros, tiendas, Harry Potter Shop.</p></div>
         <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🪄</div>
+        <div class="info"><h4>Davenport's Magic Shop</h4><p>10 min andando. La tienda de magia más antigua del mundo (1898). Charing Cross Road.</p></div>
+        <span class="price-tag price-gold">⭐</span>
       </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
@@ -805,6 +836,71 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
   </div>
 </section>
 
+<!-- FRASES EN INGLÉS -->
+<section id="section-frases" class="section">
+  <h2 class="section-title">🗣️ Frases en inglés</h2>
+  <p class="section-sub">Toca 🔊 para escuchar la pronunciación británica. La fonética es aproximada, suficiente para salir del paso.</p>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">🪄 Tiendas de magia</h3>
+  <div class="magic-shop-card">
+    <h4>Davenport's Magic Shop</h4>
+    <div class="addr">39 Charing Cross Road · WC2H 0AZ · Leicester Square / Tottenham Court Rd</div>
+    <p>La tienda de magia en activo más antigua del mundo (1898). 10 min andando desde Covent Garden — coincide con el miércoles. Barajas, libros, close-up.</p>
+  </div>
+  <div class="magic-shop-card">
+    <h4>International Magic</h4>
+    <div class="addr">89 Clerkenwell Road · EC1R 5DB · Farringdon</div>
+    <p>La del gremio. Aquí empezó Derren Brown. Close-up y mentalismo de nivel, sala de conferencias arriba.</p>
+  </div>
+  <div class="magic-shop-card">
+    <h4>The Magic Circle</h4>
+    <div class="addr">12 Stephenson's Way · NW1 2HD · Euston</div>
+    <p>No es tienda abierta: el museo se visita con cita guiada (reserva online). Houdini, historia, la mayor biblioteca mágica del mundo.</p>
+  </div>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">🛒 En la tienda de magia</h3>
+  <div class="phrase-row"><div style="flex:1"><div class="en">I'm a magician. I'm looking for...</div><div class="es">Soy mago. Estoy buscando...</div><div class="pron">/aim a ma-dyi-shion. aim lukin fo.../</div></div><button class="phrase-btn" onclick="speakEn(this,'I am a magician. I am looking for...')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Do you have any trick decks?</div><div class="es">¿Tenéis barajas trucadas?</div><div class="pron">/du yu jav eni trik deks/</div></div><button class="phrase-btn" onclick="speakEn(this,'Do you have any trick decks?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">I'm looking for something by Juan Tamariz or Dani DaOrtiz.</div><div class="es">Busco algo de Juan Tamariz o Dani DaOrtiz.</div><div class="pron">/aim lukin fo samzin bai .../</div></div><button class="phrase-btn" onclick="speakEn(this,'I am looking for something by Juan Tamariz or Dani DaOrtiz.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Do you have this book in English?</div><div class="es">¿Tenéis este libro en inglés?</div><div class="pron">/du yu jav dis buk in inglish/</div></div><button class="phrase-btn" onclick="speakEn(this,'Do you have this book in English?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Can I try it?</div><div class="es">¿Puedo probarlo?</div><div class="pron">/kan ai trai it/</div></div><button class="phrase-btn" onclick="speakEn(this,'Can I try it?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Is it suitable for close-up?</div><div class="es">¿Vale para close-up?</div><div class="pron">/is it siutable fo klous-ap/</div></div><button class="phrase-btn" onclick="speakEn(this,'Is it suitable for close-up?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">How much is this gimmick?</div><div class="es">¿Cuánto cuesta este gimmick?</div><div class="pron">/jau mach is dis guimik/</div></div><button class="phrase-btn" onclick="speakEn(this,'How much is this gimmick?')">🔊</button></div>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">🎩 Si te animas a actuar en Covent Garden</h3>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Pick a card, any card.</div><div class="es">Elige una carta, cualquier carta.</div><div class="pron">/pik a kard, eni kard/</div></div><button class="phrase-btn" onclick="speakEn(this,'Pick a card, any card.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Sign your name on the card, please.</div><div class="es">Firma la carta, por favor.</div><div class="pron">/sain yor neim on de kard plis/</div></div><button class="phrase-btn" onclick="speakEn(this,'Sign your name on the card, please.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Keep your eyes on the card.</div><div class="es">No quites los ojos de la carta.</div><div class="pron">/kip yor ais on de kard/</div></div><button class="phrase-btn" onclick="speakEn(this,'Keep your eyes on the card.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Is this your card?</div><div class="es">¿Es esta tu carta?</div><div class="pron">/is dis yor kard/</div></div><button class="phrase-btn" onclick="speakEn(this,'Is this your card?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Give it a round of applause!</div><div class="es">¡Un aplauso!</div><div class="pron">/guiv it a raund of a-plos/</div></div><button class="phrase-btn" onclick="speakEn(this,'Give it a round of applause!')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">If you enjoyed it, a small donation is welcome.</div><div class="es">Si os ha gustado, un donativo es bienvenido.</div><div class="pron">/if yu en-yoid it, a smol do-neishon is welkam/</div></div><button class="phrase-btn" onclick="speakEn(this,'If you enjoyed it, a small donation is welcome.')">🔊</button></div>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">🚇 Transporte y direcciones</h3>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Excuse me, could you help me?</div><div class="es">Perdona, ¿puedes ayudarme?</div><div class="pron">/iks-kius mi, kud yu help mi/</div></div><button class="phrase-btn" onclick="speakEn(this,'Excuse me, could you help me?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Where is the nearest tube station?</div><div class="es">¿Dónde está la estación de metro más cercana?</div><div class="pron">/uer is de nierest tiub steishon/</div></div><button class="phrase-btn" onclick="speakEn(this,'Where is the nearest tube station?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Does this train go to Elephant and Castle?</div><div class="es">¿Este tren va a Elephant & Castle?</div><div class="pron">/das dis trein gou tu elefant and kasl/</div></div><button class="phrase-btn" onclick="speakEn(this,'Does this train go to Elephant and Castle?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">One day travelcard for two adults and one child, please.</div><div class="es">Un pase de un día para dos adultos y una niña, por favor.</div><div class="pron">/uan dei travelkard fo tu adalts and uan chaild plis/</div></div><button class="phrase-btn" onclick="speakEn(this,'One day travelcard for two adults and one child, please.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Can I pay by card?</div><div class="es">¿Puedo pagar con tarjeta?</div><div class="pron">/kan ai pei bai kard/</div></div><button class="phrase-btn" onclick="speakEn(this,'Can I pay by card?')">🔊</button></div>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">🍽️ Restaurante</h3>
+  <div class="phrase-row"><div style="flex:1"><div class="en">A table for three, please.</div><div class="es">Una mesa para tres, por favor.</div><div class="pron">/a teibol fo zri plis/</div></div><button class="phrase-btn" onclick="speakEn(this,'A table for three, please.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Can I have the bill, please?</div><div class="es">La cuenta, por favor.</div><div class="pron">/kan ai jav de bil plis/</div></div><button class="phrase-btn" onclick="speakEn(this,'Can I have the bill, please?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Could we have some water, please?</div><div class="es">¿Nos trae agua, por favor?</div><div class="pron">/kud ui jav sam uater plis/</div></div><button class="phrase-btn" onclick="speakEn(this,'Could we have some water, please?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Is this spicy?</div><div class="es">¿Esto pica?</div><div class="pron">/is dis spaissi/</div></div><button class="phrase-btn" onclick="speakEn(this,'Is this spicy?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">I'm allergic to nuts / shellfish.</div><div class="es">Soy alérgico a los frutos secos / marisco.</div><div class="pron">/aim alerdyik tu nats / shelfesh/</div></div><button class="phrase-btn" onclick="speakEn(this,'I am allergic to nuts.')">🔊</button></div>
+
+  <h3 style="color:var(--gold);margin:2rem 0 1rem;">🆘 Emergencias</h3>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Help! Call an ambulance!</div><div class="es">¡Ayuda! ¡Llamad a una ambulancia!</div><div class="pron">/jelp! kol an ambiulans/</div></div><button class="phrase-btn" onclick="speakEn(this,'Help! Call an ambulance!')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">Where is the nearest pharmacy?</div><div class="es">¿Dónde está la farmacia más cercana?</div><div class="pron">/uer is de nierest farmasi/</div></div><button class="phrase-btn" onclick="speakEn(this,'Where is the nearest pharmacy?')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">I've lost my passport.</div><div class="es">He perdido mi pasaporte.</div><div class="pron">/aiv lost mai passport/</div></div><button class="phrase-btn" onclick="speakEn(this,'I have lost my passport.')">🔊</button></div>
+  <div class="phrase-row"><div style="flex:1"><div class="en">My daughter can't find me. Can you help?</div><div class="es">Mi hija no me encuentra. ¿Puede ayudarme?</div><div class="pron">/mai doter kant faind mi. kan yu jelp/</div></div><button class="phrase-btn" onclick="speakEn(this,'My daughter cannot find me. Can you help?')">🔊</button></div>
+
+  <div class="tip-card" style="margin-top:2rem;">
+    <h4>📞 Números útiles</h4>
+    <p>Emergencias (policía/ambulancia/bomberos): <strong>999</strong> · Policía no urgente: 101 · Embajada de España: 020 7589 8989 · NHS (salud no urgente): 111</p>
+  </div>
+</section>
+
 <footer>
   Hecho por NEO para David y sus hijas · Julio 2026 · v2.0<br>
   18 Amelia Street · Walworth · London SE17 3PY
@@ -848,6 +944,20 @@ function speak(btn,text){
   u.onstart=()=>{btn.classList.add('playing');btn.textContent='⏹️ Parar';};
   u.onend=()=>{btn.classList.remove('playing');btn.textContent='🔊 Escuchar';};
   u.onerror=()=>{btn.classList.remove('playing');btn.textContent='🔊 Escuchar';};
+  currentAudio=u;window.speechSynthesis.speak(u);
+}
+// SPEAK ENGLISH PHRASES
+function speakEn(btn,text){
+  if(currentAudio){window.speechSynthesis.cancel();}
+  if(btn.classList.contains('playing')){
+    btn.classList.remove('playing');return;
+  }
+  document.querySelectorAll('.phrase-btn').forEach(b=>{b.classList.remove('playing');});
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-GB';u.rate=0.85;u.pitch=1;
+  u.onstart=()=>{btn.classList.add('playing');};
+  u.onend=()=>{btn.classList.remove('playing');};
+  u.onerror=()=>{btn.classList.remove('playing');};
   currentAudio=u;window.speechSynthesis.speak(u);
 }
 </script>
