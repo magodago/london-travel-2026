@@ -228,6 +228,22 @@ nav {
 }
 .audio-btn:hover { background:var(--gold-bg); }
 .audio-btn.playing { background:var(--gold);color:var(--bg);border-color:var(--gold); }
+.book-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  padding:0.4rem 1rem;
+  border-radius:50px;
+  border:1px solid rgba(0,200,83,0.4);
+  background:rgba(0,200,83,0.1);
+  color:var(--walk);
+  font-size:0.8rem;
+  text-decoration:none;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.book-btn:hover { background:var(--walk); color:var(--bg); border-color:var(--walk); }
+.landmark-actions { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.8rem; }
 #map { width:100%;height:400px;border-radius:16px;margin-bottom:2rem;z-index:1; }
 .weather-grid {
   display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-bottom:2rem;
@@ -714,6 +730,19 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
 <section id="section-monumentos" class="section">
   <h2 class="section-title">🏛️ Atracciones</h2>
   <p class="section-sub">Precios reales 2026. Toca 🔊 para oír la historia de cada sitio.</p>
+
+  <div class="tip-card" style="border-left-color:var(--accent);margin-bottom:2rem;">
+    <h4>🎟️ Reserva YA — agosto se llena</h4>
+    <p>Todo lo que tiene franja horaria se agota en temporada alta. Reserva online esta semana:</p>
+    <p style="margin-top:0.5rem;font-size:0.9rem;">
+      <a href="https://www.londoneye.com/tickets-and-prices/" target="_blank" rel="noopener" style="color:var(--walk);">🎡 London Eye</a> ·
+      <a href="https://www.hrp.org.uk/tower-of-london/visit/tickets-and-prices/" target="_blank" rel="noopener" style="color:var(--walk);">🏰 Tower of London</a> ·
+      <a href="https://www.westminster-abbey.org/tickets" target="_blank" rel="noopener" style="color:var(--walk);">⛪ Westminster Abbey</a> ·
+      <a href="https://www.stpauls.co.uk/ticket-types-and-prices" target="_blank" rel="noopener" style="color:var(--walk);">⛪ St Paul's</a>
+    </p>
+    <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-dim);">Gratis con slot: <a href="https://www.nhm.ac.uk/visit.html" target="_blank" rel="noopener" style="color:var(--gold);">Natural History</a> y <a href="https://www.sciencemuseum.org.uk/visit-us" target="_blank" rel="noopener" style="color:var(--gold);">Science Museum</a> — reserva sin coste para saltarte la cola.</p>
+  </div>
+
   <div class="card-grid">
     <div class="landmark-card">
       <div class="landmark-img">🎡</div>
@@ -722,6 +751,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <div class="price-line">Adulto £38 · Niña (14) £33 · 🕐 30 min</div>
         <p>La noria gigante del milenio. 135 metros. Mejor al atardecer. Reserva online antes para evitar colas.</p>
         <button class="audio-btn" onclick="speak(this,'El London Eye es la noria de observación más famosa del mundo. Mide 135 metros y fue construida para celebrar el año 2000. Desde arriba se ve todo Londres: el Big Ben, el Parlamento, la Catedral de San Pablo. El viaje dura 30 minutos.')">🔊 Escuchar</button>
+        <a class="book-btn" href="https://www.londoneye.com/tickets-and-prices/" target="_blank" rel="noopener">🎟️ Reservar</a>
       </div>
     </div>
     <div class="landmark-card">
@@ -731,6 +761,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <div class="price-line">Adulto £37 · Niña (14) £18.50 · 🕐 2-3h</div>
         <p>Castillo de 1000 años. Joyas de la Corona, cuervos legendarios, guardianes con uniformes rojos. Imprescindible.</p>
         <button class="audio-btn" onclick="speak(this,'La Torre de Londres tiene casi mil años. Fue prisión, palacio real y arsenal. Hoy guarda las joyas de la corona británica. Dicen que si los cuervos se van, la torre se caerá. Siempre hay al menos 6 cuervos viviendo aquí.')">🔊 Escuchar</button>
+        <a class="book-btn" href="https://www.hrp.org.uk/tower-of-london/visit/tickets-and-prices/" target="_blank" rel="noopener">🎟️ Reservar</a>
       </div>
     </div>
     <div class="landmark-card">
@@ -740,6 +771,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <div class="price-line">Adulto £27 · Niña (14) £10.50 · 🕐 1.5h</div>
         <p>La catedral de Christopher Wren con su cúpula icónica. Subir a la Golden Gallery (528 escalones) da la mejor vista de Londres. Bodas reales y funerales de estado.</p>
         <button class="audio-btn" onclick="speak(this,'La catedral de San Pablo es obra de Christopher Wren, construida tras el gran incendio de 1666. Su cúpula mide 111 metros y es la segunda más grande del mundo. En la Galería de los Susurros, un susurro se oye al otro lado a 32 metros. Si subes los 528 escalones hasta la Golden Gallery, tienes la mejor vista panorámica de Londres.')">🔊 Escuchar</button>
+        <a class="book-btn" href="https://www.stpauls.co.uk/ticket-types-and-prices" target="_blank" rel="noopener">🎟️ Reservar</a>
       </div>
     </div>
     <div class="landmark-card">
@@ -749,6 +781,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <div class="price-line">Adulto £27 · Niña (14) £12 · 🕐 1.5h</div>
         <p>Iglesia gótica del siglo XI. Aquí coronan a los reyes. Tumbas de Newton, Dickens, Darwin.</p>
         <button class="audio-btn" onclick="speak(this,'La Abadía de Westminster es el edificio más antiguo de Londres que sigue en uso. Todos los reyes desde 1066 han sido coronados aquí. Es como un museo de la historia británica con científicos, escritores y reyes enterrados en sus muros.')">🔊 Escuchar</button>
+        <a class="book-btn" href="https://www.westminster-abbey.org/tickets" target="_blank" rel="noopener">🎟️ Reservar</a>
       </div>
     </div>
   </div>
