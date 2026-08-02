@@ -486,6 +486,11 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
+        <div class="icon attraction">🎨</div>
+        <div class="info"><h4>National Gallery</h4><p>5 min andando desde Covent Garden. Trafalgar Square. GRATIS. Los Girasoles de Van Gogh, Monet, Turner, Leonardo... el museo de cuadros de Londres.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
         <div class="icon walk">🪄</div>
         <div class="info"><h4>Davenport's Magic Shop</h4><p>10 min andando. La tienda de magia más antigua del Reino Unido (1898). Charing Cross Road.</p></div>
         <span class="price-tag price-gold">⭐</span>
@@ -599,6 +604,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
     <tr><td>Mié</td><td>Imperial War Museum</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Mié</td><td>Natural History Museum 🦕</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Mié</td><td>Science Museum 🚀</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mié</td><td>National Gallery 🎨</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Mié</td><td>Covent Garden</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Jue</td><td>Tower of London 🏰</td><td class="money">£37</td><td class="money">£18.50</td><td class="money">£74</td></tr>
     <tr><td>Jue</td><td>St Paul's Cathedral ⛪</td><td class="money">£27</td><td class="money">£10.50</td><td class="money">£48</td></tr>
@@ -742,6 +748,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       <a href="https://www.stpauls.co.uk/ticket-types-and-prices" target="_blank" rel="noopener" style="color:var(--walk);">⛪ St Paul's</a>
     </p>
     <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-dim);">Gratis con slot: <a href="https://www.nhm.ac.uk/visit.html" target="_blank" rel="noopener" style="color:var(--gold);">Natural History</a> y <a href="https://www.sciencemuseum.org.uk/visit-us" target="_blank" rel="noopener" style="color:var(--gold);">Science Museum</a> — reserva sin coste para saltarte la cola.</p>
+    <p style="margin-top:0.3rem;font-size:0.85rem;color:var(--text-dim);">🎨 <a href="https://www.nationalgallery.org.uk/visiting/plan-your-visit" target="_blank" rel="noopener" style="color:var(--gold);">National Gallery</a> — gratis y sin reserva, entra directo.</p>
   </div>
 
   <div class="card-grid">
@@ -783,6 +790,15 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
         <p>Iglesia gótica del siglo XI. Aquí coronan a los reyes. Tumbas de Newton, Dickens, Darwin.</p>
         <button class="audio-btn" onclick="speak(this,'La Abadía de Westminster es el edificio más antiguo de Londres que sigue en uso. Todos los reyes desde 1066 han sido coronados aquí. Es como un museo de la historia británica con científicos, escritores y reyes enterrados en sus muros.')">🔊 Escuchar</button>
         <a class="book-btn" href="https://www.westminster-abbey.org/tickets" target="_blank" rel="noopener">🎟️ Reservar</a>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">🎨</div>
+      <div class="landmark-body">
+        <h3>National Gallery</h3>
+        <div class="price-line">GRATIS · 🕐 2h · Trafalgar Square · 10:00-19:00 (vie hasta 21:00)</div>
+        <p>El museo de pintura de Londres: más de 2.300 cuadros. Los Girasoles de Van Gogh, Turner, Monet, Leonardo. Entrada gratis, sin reserva (solo las exposiciones temporales pagan).</p>
+        <button class="audio-btn" onclick="speak(this,'La Galería Nacional de Londres guarda más de dos mil trescientos cuadros, entre ellos los Girasoles de Van Gogh, los nenúfares de Monet y obras de Turner y Leonardo da Vinci. La entrada es gratis, porque los museos nacionales británicos no cobran. Está en Trafalgar Square, a cinco minutos andando de Covent Garden, y abre todos los días de diez de la mañana a siete de la tarde, y los viernes hasta las nueve.')">🔊 Escuchar</button>
       </div>
     </div>
   </div>
@@ -928,7 +944,7 @@ L.marker(hotel).addTo(map).bindPopup('<b>18 Amelia Street</b><br>Walworth, Londo
 [{n:'Elephant & Castle',p:[51.4947,-0.1003]},{n:'Kennington',p:[51.4884,-0.1053]},{n:'Lambeth North',p:[51.4989,-0.1116]},{n:'Waterloo',p:[51.5036,-0.1130]},{n:'London Bridge',p:[51.5055,-0.0863]}].forEach(s=>{
   L.circleMarker(s.p,{radius:6,fillColor:'#d4a843',color:'#fff',weight:2,opacity:1,fillOpacity:0.8}).addTo(map).bindPopup('<b>'+s.n+'</b>');
 });
-[{n:'Imperial War Museum',p:[51.4958,-0.1087]},{n:'London Eye',p:[51.5033,-0.1195]},{n:'Big Ben',p:[51.5007,-0.1246]},{n:'Tate Modern',p:[51.5076,-0.0984]},{n:'Borough Market',p:[51.5057,-0.0910]}].forEach(l=>{
+[{n:'Imperial War Museum',p:[51.4958,-0.1087]},{n:'London Eye',p:[51.5033,-0.1195]},{n:'Big Ben',p:[51.5007,-0.1246]},{n:'Tate Modern',p:[51.5076,-0.0984]},{n:'Borough Market',p:[51.5057,-0.0910]},{n:'National Gallery',p:[51.5089,-0.1283]}].forEach(l=>{
   L.marker(l.p,{icon:L.divIcon({className:'',html:'📍',iconSize:[20,20]})}).addTo(map).bindPopup('<b>'+l.n+'</b>');
 });
 
