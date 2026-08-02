@@ -216,6 +216,7 @@ nav {
   background:linear-gradient(135deg,#1a1a2e,#2a2a3e);
   display:flex;align-items:center;justify-content:center;font-size:3rem;
 }
+img.landmark-img { display:block; }
 .landmark-body { padding:1.2rem; }
 .landmark-body h3 { font-size:1.1rem;color:var(--gold);margin-bottom:0.3rem; }
 .landmark-body .price-line { font-size:0.8rem;color:var(--text-dim);margin-bottom:0.5rem; }
@@ -921,19 +922,20 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
 
 <!-- AUDIO GUÍA NATIONAL GALLERY -->
 <section id="section-audioguia" class="section">
-  <h2 class="section-title">🎨 National Gallery — Audio guía</h2>
-  <p class="section-sub">Las 8 obras imprescindibles narradas como audioguía. Toca 🔊 delante de cada cuadro (~1 min) o lanza la guía completa de un tirón.</p>
+  <h2 class="section-title">🎨 Audio guía de museos</h2>
+  <p class="section-sub">16 obras narradas como audioguía — 8 de la National Gallery (miércoles) y 8 del Tate Modern (lunes). Toca 🔊 delante de cada obra (~1 min) o lanza la guía completa de un tirón.</p>
 
   <div class="tip-card" style="border-left-color:var(--accent);margin-bottom:1.5rem;">
     <h4>🎧 Cómo usarla</h4>
-    <p>Lleva auriculares: se oye mejor y no molestas a nadie. Entrada gratis por Trafalgar Square. En el mostrador pide el plano en español — cada cuadro indica su sala. Orden sugerido: empieza por los impresionistas (Girasoles y Nenúfares) y termina con el Temerario, el cuadro favorito de los británicos 🌇.</p>
+    <p>Lleva auriculares: se oye mejor y no molestas a nadie. Ambos museos son GRATIS. En el mostrador pide el plano en español — cada obra indica su sala. Orden sugerido en National Gallery: empieza por los impresionistas (Girasoles y Nenúfares) y termina con el Temerario, el cuadro favorito de los británicos 🌇.</p>
   </div>
 
-  <button class="audio-btn" style="margin-bottom:1.5rem;font-size:0.9rem;padding:0.6rem 1.4rem;" onclick="speakAll(this,NG_GUIDE)">▶️ Escuchar toda la guía (~10 min)</button>
+  <h3 style="color:var(--gold);margin:0 0 1rem;">🖼️ National Gallery <span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">— miércoles · Trafalgar Square</span></h3>
+  <button class="audio-btn" style="margin-bottom:1.5rem;font-size:0.9rem;padding:0.6rem 1.4rem;" onclick="speakAll(this,NG_GUIDE)">▶️ Escuchar las 8 obras (~10 min)</button>
 
   <div class="card-grid">
     <div class="landmark-card">
-      <div class="landmark-img">🌻</div>
+      <img class="landmark-img" src="img/girasoles.jpg" alt="Los Girasoles — Van Gogh (1888)">
       <div class="landmark-body">
         <h3>Los Girasoles</h3>
         <div class="price-line">Vincent van Gogh · 1888</div>
@@ -942,7 +944,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">✨</div>
+      <img class="landmark-img" src="img/virgen.jpg" alt="La Virgen de las Rocas — Leonardo da Vinci">
       <div class="landmark-body">
         <h3>La Virgen de las Rocas</h3>
         <div class="price-line">Leonardo da Vinci · ~1491-1508</div>
@@ -951,7 +953,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">🐎</div>
+      <img class="landmark-img" src="img/heno.jpg" alt="El carro de heno — John Constable (1821)">
       <div class="landmark-body">
         <h3>El carro de heno</h3>
         <div class="price-line">John Constable · 1821</div>
@@ -960,7 +962,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">⛵</div>
+      <img class="landmark-img" src="img/temerario.jpg" alt="El último viaje del Temerario — Turner (1839)">
       <div class="landmark-body">
         <h3>El último viaje del Temerario</h3>
         <div class="price-line">J.M.W. Turner · 1839</div>
@@ -969,7 +971,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">🕵️</div>
+      <img class="landmark-img" src="img/embajadores.jpg" alt="Los embajadores — Hans Holbein (1533)">
       <div class="landmark-body">
         <h3>Los embajadores</h3>
         <div class="price-line">Hans Holbein el Joven · 1533</div>
@@ -978,7 +980,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">🪞</div>
+      <img class="landmark-img" src="img/venus.jpg" alt="Venus del espejo — Diego Velázquez">
       <div class="landmark-body">
         <h3>Venus del espejo</h3>
         <div class="price-line">Diego Velázquez · ~1647-51</div>
@@ -987,7 +989,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">💍</div>
+      <img class="landmark-img" src="img/arnolfini.jpg" alt="El matrimonio Arnolfini — Jan van Eyck (1434)">
       <div class="landmark-body">
         <h3>El matrimonio Arnolfini</h3>
         <div class="price-line">Jan van Eyck · 1434</div>
@@ -996,7 +998,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">🪷</div>
+      <img class="landmark-img" src="img/nenufares.jpg" alt="El estanque de nenúfares — Claude Monet (1899)">
       <div class="landmark-body">
         <h3>El estanque de nenúfares</h3>
         <div class="price-line">Claude Monet · 1899</div>
@@ -1005,6 +1007,86 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
   </div>
+
+  <h3 style="color:var(--gold);margin:2.5rem 0 1rem;">🖼️ Tate Modern <span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">— lunes · South Bank</span></h3>
+  <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Gratis también. Arte moderno y contemporáneo. La araña Maman suele estar en la entrada; el plano indica la sala de cada obra.</p>
+  <button class="audio-btn" style="margin-bottom:1.5rem;font-size:0.9rem;padding:0.6rem 1.4rem;" onclick="speakAll(this,TATE_GUIDE)">▶️ Escuchar las 8 obras (~10 min)</button>
+
+  <div class="card-grid">
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/marilyn.jpg" alt="Marilyn Diptych — Andy Warhol (1962)">
+      <div class="landmark-body">
+        <h3>Marilyn Diptych</h3>
+        <div class="price-line">Andy Warhol · 1962 · GRATIS</div>
+        <p>50 veces Marilyn. Pop art puro: fama, color y muerte.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[0])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/whaam.jpg" alt="Whaam! — Roy Lichtenstein (1963)">
+      <div class="landmark-body">
+        <h3>Whaam!</h3>
+        <div class="price-line">Roy Lichtenstein · 1963 · GRATIS</div>
+        <p>Un cómic gigante de 4 metros. Pop art en estado puro.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[1])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/seagram.jpg" alt="Seagram Murals — Mark Rothko (1958-59)">
+      <div class="landmark-body">
+        <h3>Seagram Murals</h3>
+        <div class="price-line">Mark Rothko · 1958-59 · GRATIS</div>
+        <p>Rojos y negros para una sala propia. El silencio hecho pintura.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[2])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/caracol.jpg" alt="The Snail — Henri Matisse (1953)">
+      <div class="landmark-body">
+        <h3>El caracol</h3>
+        <div class="price-line">Henri Matisse · 1953 · GRATIS</div>
+        <p>Papel recortado en espiral. Matisse dibujando con tijeras.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[3])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/llorona.jpg" alt="The Weeping Woman — Pablo Picasso (1937)">
+      <div class="landmark-body">
+        <h3>La mujer que llora</h3>
+        <div class="price-line">Pablo Picasso · 1937 · GRATIS</div>
+        <p>El grito de Picasso contra la guerra, en mil planos.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[4])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/narciso.jpg" alt="Metamorphosis of Narcissus — Salvador Dalí (1937)">
+      <div class="landmark-body">
+        <h3>La metamorfosis de Narciso</h3>
+        <div class="price-line">Salvador Dalí · 1937 · GRATIS</div>
+        <p>El mito griego según Dalí: el amor propio que florece.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[5])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/maman.jpg" alt="Maman — Louise Bourgeois (1999)">
+      <div class="landmark-body">
+        <h3>Maman</h3>
+        <div class="price-line">Louise Bourgeois · 1999 · GRATIS</div>
+        <p>La araña de 9 metros: homenaje de Bourgeois a su madre.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[6])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <img class="landmark-img" src="img/bailarines.jpg" alt="The Three Dancers — Pablo Picasso (1925)">
+      <div class="landmark-body">
+        <h3>Los tres bailarines</h3>
+        <div class="price-line">Pablo Picasso · 1925 · GRATIS</div>
+        <p>Fiesta y esqueleto: la danza de Picasso, salvaje y oscura.</p>
+        <button class="audio-btn" onclick="speak(this,TATE_GUIDE[7])">🔊 Escuchar</button>
+      </div>
+    </div>
+  </div>
+  <p style="color:var(--text-dim);font-size:0.75rem;margin-top:1.5rem;">Imágenes: Wikimedia Commons / Wikipedia / Tate — obras de dominio público. Narración: NEO.</p>
 </section>
 
 <footer>
@@ -1081,24 +1163,38 @@ const NG_GUIDE=[
 "El estanque de nenúfares, de Claude Monet, mil ochocientos noventa y nueve. Monet pintó su jardín de agua en Giverny una y otra vez: aquí vemos el puente japonés sobre el estanque. Monet era impresionista: no pinta el objeto, pinta la luz y el instante. Mirad el puente verde arqueado reflejado en el agua y las pinceladas sueltas que construyen los nenúfares. Pasó los últimos treinta años de su vida obsesionado con este estanque, y sus grandes paneles de nenúfares están en museos de todo el mundo. Este cuadro es la mejor explicación del impresionismo: la luz antes que la forma."
 ];
 
+// AUDIOGUÍA TATE MODERN — narraciones
+const TATE_GUIDE=[
+"El Díptico de Marilyn, de Andy Warhol, mil novecientos sesenta y dos. Cincuenta imágenes de Marilyn Monroe: la mitad en color, la mitad en blanco y negro borroso. Warhol lo hizo justo después de que Marilyn muriera. En las copias en color, los tonos son chillones, como en los carteles de Hollywood; en las de blanco y negro, la imagen se desvanece, como si la estrella se apagara. Es la obra maestra del pop art: toma la imagen repetida de los medios y la convierte en un icono, y a la vez nos habla de la fama y de la muerte. Cada copia está hecha a mano con plantillas, por eso ninguna es exactamente igual.",
+"Whaam!, de Roy Lichtenstein, mil novecientos sesenta y tres. Es un cómic gigante pintado al óleo: un avión de combate dispara un misil que impacta en una explosión amarilla, con la onomatopeya Whaam! escrita en grande. Lichtenstein imitaba la técnica de los cómics: puntos de semitono, colores planos, bocadillos de texto. Pero no copiaba cómics existentes: creaba sus propios cuadros con ese lenguaje. Mide cuatro metros de ancho y enfrenta dos paneles: el avión y la explosión. Irónico, pop y espectacular, es una de las obras más queridas del Tate.",
+"Los murales Seagram, de Mark Rothko, mil novecientos cincuenta y ocho. Rothko recibió el encargo de decorar el restaurante Seagram, el más lujoso de Nueva York. Pintó estos enormes lienzos oscuros: rojos y negros que flotan sobre la tela, casi sin figura. Pero al final se arrepintió: no quería que su obra decorara el comedor de los millonarios, y devolvió el dinero. Los donó a la Tate, que los muestra en una sala propia. No son cuadros para colgar: son un espacio para sentarse y mirar. Dicen que cuanta más tiempo pasas mirándolos, más colores aparecen en la oscuridad.",
+"El caracol, de Henri Matisse, mil novecientos cincuenta y tres. Matisse, ya mayor y casi sin levantarse de la cama, no pintaba: cortaba papel pintado con gouache y lo pegaba. Este caracol está hecho de rectángulos de colores en espiral. Fijaos: los colores siguen el arco iris — amarillo, naranja, rojo, violeta, azul, verde — enrollándose como la concha del caracol. Para Matisse, recortar papel era dibujar con tijeras, directo y sin correcciones. Es una obra alegre y luminosa, una de las más queridas del arte moderno. Los niños la entienden al instante.",
+"La mujer que llora, de Pablo Picasso, mil novecientos treinta y siete. Es Dora Maar, su compañera, y también es un grito contra la guerra. El mismo año, Picasso pintó el Guernica sobre el bombardeo de una ciudad vasca; esta mujer es parte de esa serie. Mirad la cara: los ojos descolocados, las lágrimas como cristales, el pañuelo con dientes afilados, las manos mordiendo el pañuelo. Picasso rompe la cara en mil planos para mostrar el dolor desde todos los ángulos a la vez. No es un retrato: es el dibujo de un sentimiento. Una de las imágenes más intensas del siglo veinte.",
+"La metamorfosis de Narciso, de Salvador Dalí, mil novecientos treinta y siete. El mito griego: Narciso se enamora de su reflejo y muere ahogado. Dalí lo pinta dos veces: a la izquierda, el joven mirándose en el agua; a la derecha, su mano convertida en flor — el narciso — sosteniendo un huevo del que nace la flor. Dalí escribió un poema sobre este cuadro y lo consideraba el primer cuadro paranoico-crítico: ver dos imágenes en una. Fijaos en el perro junto a Narciso y en las figuras del fondo. Es el Dalí más poético: la muerte como transformación, no como final.",
+"Mamán, de Louise Bourgeois, mil novecientos noventa y nueve. Es una araña gigante de bronce, de más de nueve metros, con un saco lleno de huevos de mármol. Suena aterradora, pero para Bourgeois era todo lo contrario: su madre era restauradora de tapices, paciente, tejedora y protectora — como una araña. Esta escultura es un homenaje a ella. Fijaos en las patas finísimas y en los huevos: frágil y fuerte a la vez. Está en la entrada del Tate Modern, y los niños la adoran: pasan por debajo como en una casa gigante. Una de las esculturas más famosas del mundo.",
+"Los tres bailarines, de Pablo Picasso, mil novecientos veinticinco. Tres figuras bailando al ritmo de los años veinte: un bailarín de negro, una bailarina y un esqueleto en la sombra. Picasso lo pintó en un momento de crisis: la figura de la izquierda se retuerce, la de la derecha es un esqueleto que recuerda a un amigo que murió. Fijaos en los cuerpos: planos, cortados, con la cruz clavada en el costado del bailarín. Es un cuadro violento y salvaje, lleno de energía y de dolor. Picasso lo pintó después de la muerte de su amigo Pichot, cuyo recuerdo aparece como ese bailarín esquelético."
+];
+
 // Reproduce toda la guía en cola (un audio tras otro)
 function speakAll(btn,texts){
+  if(!btn.dataset.orig){btn.dataset.orig=btn.textContent.replace(/^▶️\s*/,'');}
+  const idle='▶️ '+btn.dataset.orig;
   if(btn.classList.contains('playing')){
     audioQueueToken++;window.speechSynthesis.cancel();
-    btn.classList.remove('playing');btn.textContent='▶️ Escuchar toda la guía (~10 min)';return;
+    btn.classList.remove('playing');btn.textContent=idle;return;
   }
   if(currentAudio){window.speechSynthesis.cancel();}
   const myToken=++audioQueueToken;
   const list=[...texts];
   function next(){
-    if(myToken!==audioQueueToken){btn.classList.remove('playing');btn.textContent='▶️ Escuchar toda la guía (~10 min)';return;}
-    if(!list.length){btn.classList.remove('playing');btn.textContent='▶️ Escuchar toda la guía (~10 min)';currentAudio=null;return;}
+    if(myToken!==audioQueueToken){btn.classList.remove('playing');btn.textContent=idle;return;}
+    if(!list.length){btn.classList.remove('playing');btn.textContent=idle;currentAudio=null;return;}
     const uu=new SpeechSynthesisUtterance(list.shift());
     uu.lang='es-ES';uu.rate=0.9;
     uu.onend=next;uu.onerror=next;
     currentAudio=uu;window.speechSynthesis.speak(uu);
   }
-  btn.classList.add('playing');btn.textContent='⏹️ Parar guía';
+  btn.classList.add('playing');btn.textContent='⏹️ Parar';
   next();
 }
 </script>
