@@ -344,6 +344,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
     <button class="nav-btn" data-section="transporte">🚇 Transporte</button>
     <button class="nav-btn" data-section="mapa">📍 Mapa</button>
     <button class="nav-btn" data-section="monumentos">🏛️ Atracciones</button>
+    <button class="nav-btn" data-section="audioguia">🎨 Audio guía</button>
     <button class="nav-btn" data-section="tips">💡 Tips</button>
     <button class="nav-btn" data-section="frases">🗣️ Frases EN</button>
   </div>
@@ -918,6 +919,94 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
   </div>
 </section>
 
+<!-- AUDIO GUÍA NATIONAL GALLERY -->
+<section id="section-audioguia" class="section">
+  <h2 class="section-title">🎨 National Gallery — Audio guía</h2>
+  <p class="section-sub">Las 8 obras imprescindibles narradas como audioguía. Toca 🔊 delante de cada cuadro (~1 min) o lanza la guía completa de un tirón.</p>
+
+  <div class="tip-card" style="border-left-color:var(--accent);margin-bottom:1.5rem;">
+    <h4>🎧 Cómo usarla</h4>
+    <p>Lleva auriculares: se oye mejor y no molestas a nadie. Entrada gratis por Trafalgar Square. En el mostrador pide el plano en español — cada cuadro indica su sala. Orden sugerido: empieza por los impresionistas (Girasoles y Nenúfares) y termina con el Temerario, el cuadro favorito de los británicos 🌇.</p>
+  </div>
+
+  <button class="audio-btn" style="margin-bottom:1.5rem;font-size:0.9rem;padding:0.6rem 1.4rem;" onclick="speakAll(this,NG_GUIDE)">▶️ Escuchar toda la guía (~10 min)</button>
+
+  <div class="card-grid">
+    <div class="landmark-card">
+      <div class="landmark-img">🌻</div>
+      <div class="landmark-body">
+        <h3>Los Girasoles</h3>
+        <div class="price-line">Vincent van Gogh · 1888</div>
+        <p>El amarillo más famoso del arte. Pintado en Arlés para recibir a Gauguin.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[0])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">✨</div>
+      <div class="landmark-body">
+        <h3>La Virgen de las Rocas</h3>
+        <div class="price-line">Leonardo da Vinci · ~1491-1508</div>
+        <p>Leonardo y el sfumato. La única obra suya a gran tamaño en el Reino Unido.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[1])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">🐎</div>
+      <div class="landmark-body">
+        <h3>El carro de heno</h3>
+        <div class="price-line">John Constable · 1821</div>
+        <p>La Inglaterra rural que desaparecía. Inspiró a Delacroix en París.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[2])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">⛵</div>
+      <div class="landmark-body">
+        <h3>El último viaje del Temerario</h3>
+        <div class="price-line">J.M.W. Turner · 1839</div>
+        <p>El favorito de los británicos: la vela muere, el vapor nace.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[3])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">🕵️</div>
+      <div class="landmark-body">
+        <h3>Los embajadores</h3>
+        <div class="price-line">Hans Holbein el Joven · 1533</div>
+        <p>La calavera escondida: ponte de lado y la verás.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[4])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">🪞</div>
+      <div class="landmark-body">
+        <h3>Venus del espejo</h3>
+        <div class="price-line">Diego Velázquez · ~1647-51</div>
+        <p>El único desnudo de Velázquez. La belleza que no se deja atrapar.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[5])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">💍</div>
+      <div class="landmark-body">
+        <h3>El matrimonio Arnolfini</h3>
+        <div class="price-line">Jan van Eyck · 1434</div>
+        <p>Una boda firmada por el pintor como testigo. Cada objeto es un símbolo.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[6])">🔊 Escuchar</button>
+      </div>
+    </div>
+    <div class="landmark-card">
+      <div class="landmark-img">🪷</div>
+      <div class="landmark-body">
+        <h3>El estanque de nenúfares</h3>
+        <div class="price-line">Claude Monet · 1899</div>
+        <p>Monet y su jardín: la luz antes que la forma. Impresionismo puro.</p>
+        <button class="audio-btn" onclick="speak(this,NG_GUIDE[7])">🔊 Escuchar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   Hecho por NEO para David y sus hijas · Julio 2026 · v3.0<br>
   18 Amelia Street · Walworth · London SE17 3PY
@@ -950,7 +1039,9 @@ L.marker(hotel).addTo(map).bindPopup('<b>18 Amelia Street</b><br>Walworth, Londo
 
 // SPEECH
 let currentAudio=null;
+let audioQueueToken=0;
 function speak(btn,text){
+  audioQueueToken++;
   if(currentAudio){window.speechSynthesis.cancel();}
   if(btn.classList.contains('playing')){
     btn.classList.remove('playing');btn.textContent='🔊 Escuchar';return;
@@ -976,6 +1067,39 @@ function speakEn(btn,text){
   u.onend=()=>{btn.classList.remove('playing');};
   u.onerror=()=>{btn.classList.remove('playing');};
   currentAudio=u;window.speechSynthesis.speak(u);
+}
+
+// AUDIOGUÍA NATIONAL GALLERY — narraciones
+const NG_GUIDE=[
+"Los Girasoles, pintados por Vincent van Gogh en mil ochocientos ochenta y ocho, en Arlés, al sur de Francia. Los creó para decorar la habitación donde esperaba recibir a su amigo Paul Gauguin. Fijaos en el amarillo: Van Gogh usó el mismo pigmento en toda la superficie, lo que él llamaba el amarillo alto. Los girasoles pasan de la plenitud a la marchitez: para él eran el símbolo de la vida y de su fragilidad. Mirad las pinceladas: cada trazo se ve, sin esconder el gesto. Van Gogh murió dos años después, pero estos cuadros lo hicieron inmortal.",
+"La Virgen de las Rocas, de Leonardo da Vinci, pintada hacia mil quinientos para una capilla de Milán. Hay dos versiones; esta de Londres es probablemente la primera. Fijaos en la composición: las figuras forman una pirámide, y el paisaje rocoso envuelve a la Virgen, al niño Jesús, a San Juan y al ángel. Leonardo dominaba el sfumato: los contornos se difuminan como niebla, sin líneas duras. Mirad la mano del ángel que señala al niño: crea un misterio entre los personajes. Es el único cuadro de Leonardo a gran tamaño en el Reino Unido y una de las obras más valiosas del mundo.",
+"El carro de heno, de John Constable, mil ochocientos veintiuno. Muestra un carro cruzando un río en el valle del Stour, la tierra donde nació y donde su padre tenía molinos. Es el retrato de la Inglaterra rural que estaba desapareciendo con la revolución industrial. Mirad el cielo: Constable estudió las nubes durante años y las dibujaba al aire libre para capturar la luz real. Cuando el cuadro se expuso en París, en mil ochocientos veinticuatro, inspiró a los pintores franceses: dicen que Delacroix repintó parte de su propio cuadro después de verlo. Es el cuadro inglés más famoso del mundo.",
+"El último viaje del Temerario, de William Turner, mil ochocientos treinta y nueve. El viejo barco de guerra que luchó en Trafalgar es remolcado al desguace por un pequeño barco de vapor. Es el fin de una era: la vela muere, el vapor nace. El sol se pone sobre el Támesis y el dorado del cielo se refleja en el agua. El Temerario es blanco como un fantasma; el remolcador, negro y humilde. Turner quiso tanto este cuadro que se negó a venderlo. En las encuestas británicas, siempre gana el premio al cuadro favorito de la nación.",
+"Los embajadores, de Hans Holbein el Joven, mil quinientos treinta y tres. Dos embajadores franceses en la corte de Enrique octavo. En la mesa hay globos, instrumentos científicos, un laúd: símbolos de ciencia, música y poder. Pero hay un detalle extraño: esa mancha alargada en el suelo. Si os ponéis de lado, veréis que es una calavera, pintada con la técnica de la anamorfosis. Es un memento mori: la muerte está siempre presente, por mucho poder que tengas. Buscad también el pequeño crucifijo casi oculto tras la cortina verde. Un cuadro sobre la ambición y la fugacidad de la vida.",
+"La Venus del espejo, de Diego Velázquez, hacia mil seiscientos cincuenta. Es el único desnudo femenino que se conserva del gran pintor español. Fijaos: no vemos su cara, solo su espalda, reflejada en el espejo que sostiene Cupido. Es una trampa visual: el espejo muestra el rostro borroso, como si la belleza no pudiera atraparse del todo. Las curvas del cuerpo se repiten en las líneas de la ropa de cama. En mil novecientos catorce, una sufragista la atacó con un cuchillo para protestar por el arresto de su líder; por eso tiene marcas de restauración. Es la única Venus del Siglo de Oro español.",
+"El retrato de Giovanni Arnolfini y su esposa, de Jan van Eyck, mil cuatrocientos treinta y cuatro, en Brujas. Es una boda documentada como un acta notarial: mirad la firma en la pared: Johannes de Eyck fuit hic, Jan van Eyck estuvo aquí, como testigo. El espejo convexo del fondo refleja a los esposos y a dos visitantes; uno es el propio pintor. Cada objeto tiene significado: el perrito es la fidelidad, las naranjas la riqueza, la vela encendida la presencia de Dios. Es una de las obras más enigmáticas y de ejecución más perfecta de todo el arte europeo.",
+"El estanque de nenúfares, de Claude Monet, mil ochocientos noventa y nueve. Monet pintó su jardín de agua en Giverny una y otra vez: aquí vemos el puente japonés sobre el estanque. Monet era impresionista: no pinta el objeto, pinta la luz y el instante. Mirad el puente verde arqueado reflejado en el agua y las pinceladas sueltas que construyen los nenúfares. Pasó los últimos treinta años de su vida obsesionado con este estanque, y sus grandes paneles de nenúfares están en museos de todo el mundo. Este cuadro es la mejor explicación del impresionismo: la luz antes que la forma."
+];
+
+// Reproduce toda la guía en cola (un audio tras otro)
+function speakAll(btn,texts){
+  if(btn.classList.contains('playing')){
+    audioQueueToken++;window.speechSynthesis.cancel();
+    btn.classList.remove('playing');btn.textContent='▶️ Escuchar toda la guía (~10 min)';return;
+  }
+  if(currentAudio){window.speechSynthesis.cancel();}
+  const myToken=++audioQueueToken;
+  const list=[...texts];
+  function next(){
+    if(myToken!==audioQueueToken){btn.classList.remove('playing');btn.textContent='▶️ Escuchar toda la guía (~10 min)';return;}
+    if(!list.length){btn.classList.remove('playing');btn.textContent='▶️ Escuchar toda la guía (~10 min)';currentAudio=null;return;}
+    const uu=new SpeechSynthesisUtterance(list.shift());
+    uu.lang='es-ES';uu.rate=0.9;
+    uu.onend=next;uu.onerror=next;
+    currentAudio=uu;window.speechSynthesis.speak(uu);
+  }
+  btn.classList.add('playing');btn.textContent='⏹️ Parar guía';
+  next();
 }
 </script>
 </body>
