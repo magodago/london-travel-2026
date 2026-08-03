@@ -328,9 +328,9 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
     <p class="hero-sub">Del lunes al viernes. 18 Amelia Street. Planificado al detalle para ti y tus hijas de 14 años.</p>
     <div class="hero-dates">
       <div class="date-chip"><strong>🛫 Lun UX1013</strong> · Madrid→LGW 07:30→09:00</div>
-      <div class="date-chip"><strong>Mar</strong> · Monumentos</div>
-      <div class="date-chip"><strong>Mié</strong> · Museos</div>
-      <div class="date-chip"><strong>Jue</strong> · Torre + Cúpula</div>
+      <div class="date-chip"><strong>Mar</strong> · Museos + Nocturno</div>
+      <div class="date-chip"><strong>Mié</strong> · Londres curioso</div>
+      <div class="date-chip"><strong>Jue</strong> · Torre + Támesis</div>
       <div class="date-chip"><strong>🛬 Vie UX1016</strong> · LGW→Madrid 17:25→20:55</div>
     </div>
     <button class="hero-cta" onclick="document.querySelector('.nav-btn').click()"> Explorar plan →</button>
@@ -411,32 +411,52 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
   <!-- MARTES -->
   <div class="day-card">
     <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Martes — Monumentos clásicos <span class="tag tag-gold">~£44 adulto</span></h3>
+      <h3>🇬🇧 Martes — Museos + Monumentos de noche <span class="tag tag-green">GRATIS</span></h3>
       <span class="arrow">▼</span>
     </div>
     <div class="day-body">
+      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Mañana de museos gratis, tarde-noche de monumentos iluminados. (Westminster Abbey fuera — no sois de iglesias)</p>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Imperial War Museum</h4><p>5 min del hotel. GRATIS. Abre 10:00. Tanques, aviones, historia.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
       <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Elephant & Castle → Westminster</h4><p>Bakerloo directo o andando 25 min.</p></div>
+        <div class="info"><h4>→ South Kensington (Northern→Piccadilly)</h4><p>~20 min.</p></div>
       </div>
       <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Big Ben + Parliament 📸</h4><p>Gratis verlos desde fuera. Fotos.</p></div>
-        <span class="price-tag price-free">GRATIS</span>
-      </div>
-      <div class="route-step">
-        <div class="icon attraction">⛪</div>
-        <div class="info"><h4>Westminster Abbey</h4><p>5 min. Adulto ~£27, niñas ~£12 (6-17 años). Merece la pena.</p></div>
-        <span class="price-tag price-paid">£27 + £12</span>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>St James's Park → Buckingham Palace</h4><p>15 min por el parque. Cambio de guardia 11:00 si llegáis.</p></div>
+        <div class="icon attraction">🦕</div>
+        <div class="info"><h4>Natural History Museum</h4><p>GRATIS con slot reservado. Dinosaurios, terremotos, gemas. El favorito de los niños.</p></div>
         <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Piccadilly Circus + Chinatown</h4><p>20 min por The Mall. Cena en Chinatown 🥟 ~£35-45 los 3.</p></div>
+        <div class="info"><h4>Science Museum</h4><p>Al lado. GRATIS. Cohetes, aviones, interactivo.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon food">🍽️</div>
+        <div class="info"><h4>Comida en South Ken</h4><p>Franco Manca (pizza), Wasabi (sushi). ~£30-40 los 3.</p></div>
+        <span class="price-tag price-paid">~£35</span>
+      </div>
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>→ Westminster</h4><p>~20 min. Llegad sobre las 17:30 para el atardecer.</p></div>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Big Ben + Parliament iluminados 📸</h4><p>Al anochecer es cuando mejor se ve. Fotos desde Westminster Bridge.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>St James's Park → Buckingham Palace</h4><p>15 min por el parque. De noche, con las luces, es precioso.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🚶</div>
+        <div class="info"><h4>Piccadilly Circus + Chinatown</h4><p>20 min por The Mall. Luces de neón + cena en Chinatown 🥟 ~£35-45 los 3.</p></div>
         <span class="price-tag price-paid">~£40</span>
       </div>
       <div class="route-step">
@@ -449,57 +469,73 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
   <!-- MIÉRCOLES -->
   <div class="day-card">
     <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Miércoles — Museos + Magia <span class="tag tag-green">~£5 adulto</span></h3>
+      <h3>🇬🇧 Miércoles — Londres curioso <span class="tag tag-gold">~£24 adulto</span></h3>
       <span class="arrow">▼</span>
     </div>
     <div class="day-body">
-      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">El día más barato y uno de los mejores. Casi todo GRATIS.</p>
+      <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Secretos ocultos, la juguetería más antigua del mundo, la tienda de magia y Jack el Destripador de noche.</p>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Imperial War Museum</h4><p>5 min del hotel. GRATIS. Tanques, aviones, historia.</p></div>
-        <span class="price-tag price-free">GRATIS</span>
-      </div>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>→ South Kensington (Northern→Piccadilly)</h4><p>~20 min.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon attraction">🦕</div>
-        <div class="info"><h4>Natural History Museum</h4><p>GRATIS. Dinosaurios, terremotos, gemas. El favorito de los niños.</p></div>
+        <div class="info"><h4>Covent Garden 🎭</h4><p>Artistas callejeros + <strong>Benjamin Pollock's Toyshop</strong>: la tienda de teatros de papel victorianos. Muy curiosa.</p></div>
         <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>Science Museum</h4><p>Al lado. GRATIS. Cohetes, aviones, interactivo.</p></div>
+        <div class="info"><h4>National Gallery (opcional)</h4><p>5 min andando, Trafalgar Square. Los Girasoles con la audioguía 🔊 — 30 min si os apetece.</p></div>
         <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
-        <div class="icon food">🍽️</div>
-        <div class="info"><h4>Comida en South Ken</h4><p>Franco Manca (pizza), Wasabi (sushi). ~£30-40.</p></div>
-        <span class="price-tag price-paid">~£35</span>
-      </div>
-      <div class="route-step">
-        <div class="icon tube">🚇</div>
-        <div class="info"><h4>→ Covent Garden (Piccadilly)</h4><p>10 min.</p></div>
-      </div>
-      <div class="route-step">
-        <div class="icon walk">🚶</div>
-        <div class="info"><h4>Covent Garden 🎭</h4><p>Artistas callejeros, tiendas, mercadillo cubierto.</p></div>
+        <div class="icon walk">👃</div>
+        <div class="info"><h4>Las 7 narices de Soho</h4><p>Juego de búsqueda: 7 narices esculpidas en las fachadas de Soho (Bateman St, Meard St...). Gratis y molón.</p></div>
         <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
-        <div class="icon attraction">🎨</div>
-        <div class="info"><h4>National Gallery</h4><p>5 min andando desde Covent Garden. Trafalgar Square. GRATIS. Los Girasoles de Van Gogh, Monet, Turner, Leonardo... el museo de cuadros de Londres.</p></div>
+        <div class="icon walk">🧸</div>
+        <div class="info"><h4>Hamleys — Regent Street</h4><p>10 min. La juguetería más famosa del mundo (desde 1760), 7 plantas con demos en vivo.</p></div>
         <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🪄</div>
-        <div class="info"><h4>Davenport's Magic Shop</h4><p>10 min andando. La tienda de magia más antigua del Reino Unido (1898). Charing Cross Road.</p></div>
+        <div class="info"><h4>Davenport's Magic Shop</h4><p>10 min andando. La tienda de magia más antigua del Reino Unido (1898). Charing Cross Road. Parada obligada 🎩</p></div>
         <span class="price-tag price-gold">⭐</span>
       </div>
       <div class="route-step">
+        <div class="icon food">🍽️</div>
+        <div class="info"><h4>Comida en Soho/Chinatown</h4><p>~£30-40 los 3.</p></div>
+        <span class="price-tag price-paid">~£35</span>
+      </div>
+      <div class="route-step">
         <div class="icon tube">🚇</div>
-        <div class="info"><h4>Vuelta (Northern Line)</h4><p>15 min.</p></div>
+        <div class="info"><h4>→ Cannon Street (District/Circle)</h4><p>~15 min.</p></div>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🏛️</div>
+        <div class="info"><h4>Leadenhall Market</h4><p>Mercado victoriano techado de 1881, columnas rojas y verdes. Uno de los rincones más bonitos del City.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon attraction">🏺</div>
+        <div class="info"><h4>London Mithraeum</h4><p>5 min. Templo romano de Mitra (s. III) bajo el edificio Bloomberg: niebla, sonido, inmersivo. GRATIS con slot reservado.</p></div>
+        <span class="price-tag price-free">GRATIS</span>
+      </div>
+      <div class="route-step">
+        <div class="icon attraction">⚕️</div>
+        <div class="info"><h4>Old Operating Theatre</h4><p>15 min andando. El quirófano victoriano más antiguo de Europa (1822), en el ático de una iglesia. Adulto £9, niñas £5.50.</p></div>
+        <span class="price-tag price-paid">£9 + £5.50</span>
+      </div>
+      <div class="route-step">
+        <div class="icon food">🍽️</div>
+        <div class="info"><h4>Cena temprana en Spitalfields/Brick Lane</h4><p>La capital del curry de Londres. ~£30-40 los 3.</p></div>
+        <span class="price-tag price-paid">~£35</span>
+      </div>
+      <div class="route-step">
+        <div class="icon walk">🔪</div>
+        <div class="info"><h4>Tour Jack el Destripador 🕵️</h4><p>Sale de Tower Hill (Trinity Square) al anochecer ~19:00, 2h por Whitechapel con guía ripperólogo. Desde £15/persona.</p></div>
+        <span class="price-tag price-paid">~£45</span>
+      </div>
+      <div class="route-step">
+        <div class="icon tube">🚇</div>
+        <div class="info"><h4>Vuelta (Aldgate East → Northern)</h4><p>15 min.</p></div>
       </div>
     </div>
   </div>
@@ -507,7 +543,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
   <!-- JUEVES -->
   <div class="day-card">
     <div class="day-header" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-      <h3>🇬🇧 Jueves — Torre + Cúpula <span class="tag tag-gold">~£69 adulto</span></h3>
+      <h3>🇬🇧 Jueves — Torre + Támesis <span class="tag tag-gold">~£42 adulto</span></h3>
       <span class="arrow">▼</span>
     </div>
     <div class="day-body">
@@ -522,8 +558,8 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
-        <div class="info"><h4>St Paul's Cathedral ⛪</h4><p>20 min andando desde la Torre (o metro 2 paradas). Adulto £27, niñas £10.50. La cúpula de Wren, subir a la Golden Gallery.</p></div>
-        <span class="price-tag price-paid">£27 + £10.50</span>
+        <div class="info"><h4>Cruzar Tower Bridge 🌉</h4><p>Desde la Torre, 5 min. Gratis. Vistas del río y la City. (St Paul's fuera — no sois de iglesias)</p></div>
+        <span class="price-tag price-free">GRATIS</span>
       </div>
       <div class="route-step">
         <div class="icon walk">🚶</div>
@@ -601,18 +637,18 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
     <tr><th>Día</th><th>Atracción</th><th>Tú</th><th>Cada niña</th><th>Total</th></tr>
     <tr><td>Lun</td><td>London Eye 🎡</td><td class="money">£38</td><td class="money">£33</td><td class="money">£104</td></tr>
     <tr><td>Lun</td><td>Tate Modern</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
-    <tr><td>Mar</td><td>Westminster Abbey ⛪</td><td class="money">£27</td><td class="money">£12</td><td class="money">£51</td></tr>
+    <tr><td>Mar</td><td>Imperial War Museum</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mar</td><td>Natural History Museum 🦕</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mar</td><td>Science Museum 🚀</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Mar</td><td>Buckingham Palace (exterior)</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
-    <tr><td>Mié</td><td>Imperial War Museum</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
-    <tr><td>Mié</td><td>Natural History Museum 🦕</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
-    <tr><td>Mié</td><td>Science Museum 🚀</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Mié</td><td>National Gallery 🎨</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
     <tr><td>Mié</td><td>Covent Garden</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
+    <tr><td>Mié</td><td>Old Operating Theatre ⚕️</td><td class="money">£9</td><td class="money">£5.50</td><td class="money">£20</td></tr>
+    <tr><td>Mié</td><td>Tour Jack el Destripador 🔪</td><td class="money">~£15</td><td class="money">~£7.50</td><td class="money">~£30</td></tr>
     <tr><td>Jue</td><td>Tower of London 🏰</td><td class="money">£37</td><td class="money">£18.50</td><td class="money">£74</td></tr>
-    <tr><td>Jue</td><td>St Paul's Cathedral ⛪</td><td class="money">£27</td><td class="money">£10.50</td><td class="money">£48</td></tr>
     <tr><td>Jue</td><td>Uber Boat ⛴️</td><td class="money">£5</td><td class="money">£2.50</td><td class="money">£10</td></tr>
     <tr><td>Vie</td><td>Camden Market</td><td class="money free">GRATIS</td><td class="money free">GRATIS</td><td class="money free">£0</td></tr>
-    <tr class="total"><td colspan="2"><strong>TOTAL ATRACCIONES</strong></td><td class="money">£134</td><td class="money">£76.50</td><td class="money">£287</td></tr>
+    <tr class="total"><td colspan="2"><strong>TOTAL ATRACCIONES</strong></td><td class="money">£104</td><td class="money">£67</td><td class="money">£238</td></tr>
   </table>
 
   <h3 style="color:var(--gold);margin:2rem 0 1rem;">Comidas (estimado)</h3>
@@ -637,9 +673,9 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
 
   <div class="card" style="margin-top:2rem;">
     <h3>💰 Presupuesto total estimado</h3>
-    <p style="font-size:1.2rem;font-weight:700;color:var(--gold);margin:0.5rem 0;">~£890 para los 3 (todo incluido)</p>
-    <p style="font-size:0.85rem;">Atracciones £287 + Comidas £500 + Transporte £104. Sin contar hotel y vuelos.</p>
-    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.8rem;">💡 El London Pass (3 días: adulto £179 + 2 niñas £119 cada una = £417) SALE MÁS CARO que pagar por separado (£287). Además el London Eye NO entra en el pase estándar.</p>
+    <p style="font-size:1.2rem;font-weight:700;color:var(--gold);margin:0.5rem 0;">~£842 para los 3 (todo incluido)</p>
+    <p style="font-size:0.85rem;">Atracciones £238 + Comidas £500 + Transporte £104. Sin contar hotel y vuelos.</p>
+    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.8rem;">💡 El London Pass (3 días: adulto £179 + 2 niñas £119 cada una = £417) SALE MÁS CARO que pagar por separado (£238). Además el London Eye NO entra en el pase estándar.</p>
   </div>
 </section>
 
@@ -746,10 +782,10 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
     <p style="margin-top:0.5rem;font-size:0.9rem;">
       <a href="https://www.londoneye.com/tickets-and-prices/" target="_blank" rel="noopener" style="color:var(--walk);">🎡 London Eye</a> ·
       <a href="https://www.hrp.org.uk/tower-of-london/visit/tickets-and-prices/" target="_blank" rel="noopener" style="color:var(--walk);">🏰 Tower of London</a> ·
-      <a href="https://www.westminster-abbey.org/tickets" target="_blank" rel="noopener" style="color:var(--walk);">⛪ Westminster Abbey</a> ·
-      <a href="https://www.stpauls.co.uk/ticket-types-and-prices" target="_blank" rel="noopener" style="color:var(--walk);">⛪ St Paul's</a>
+      <a href="https://oldoperatingtheatre.com/book-tickets/" target="_blank" rel="noopener" style="color:var(--walk);">⚕️ Old Operating Theatre</a> ·
+      <a href="https://www.bestlondontours.co.uk/tours/jack-the-ripper-tour" target="_blank" rel="noopener" style="color:var(--walk);">🔪 Tour Jack el Destripador</a>
     </p>
-    <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-dim);">Gratis con slot: <a href="https://www.nhm.ac.uk/visit.html" target="_blank" rel="noopener" style="color:var(--gold);">Natural History</a> y <a href="https://www.sciencemuseum.org.uk/visit-us" target="_blank" rel="noopener" style="color:var(--gold);">Science Museum</a> — reserva sin coste para saltarte la cola.</p>
+    <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-dim);">Gratis con slot: <a href="https://www.nhm.ac.uk/visit.html" target="_blank" rel="noopener" style="color:var(--gold);">Natural History</a>, <a href="https://www.sciencemuseum.org.uk/visit-us" target="_blank" rel="noopener" style="color:var(--gold);">Science Museum</a> y <a href="https://www.londonmithraeum.com/visit/" target="_blank" rel="noopener" style="color:var(--gold);">London Mithraeum</a> — reserva sin coste para saltarte la cola.</p>
     <p style="margin-top:0.3rem;font-size:0.85rem;color:var(--text-dim);">🎨 <a href="https://www.nationalgallery.org.uk/visiting/plan-your-visit" target="_blank" rel="noopener" style="color:var(--gold);">National Gallery</a> — gratis y sin reserva, entra directo.</p>
   </div>
 
@@ -775,23 +811,23 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">⛪</div>
+      <div class="landmark-img">⚕️</div>
       <div class="landmark-body">
-        <h3>St Paul's Cathedral</h3>
-        <div class="price-line">Adulto £27 · Niña (14) £10.50 · 🕐 1.5h</div>
-        <p>La catedral de Christopher Wren con su cúpula icónica. Subir a la Golden Gallery (528 escalones) da la mejor vista de Londres. Bodas reales y funerales de estado.</p>
-        <button class="audio-btn" onclick="speak(this,'La catedral de San Pablo es obra de Christopher Wren, construida tras el gran incendio de 1666. Su cúpula mide 111 metros y es la segunda más grande del mundo. En la Galería de los Susurros, un susurro se oye al otro lado a 32 metros. Si subes los 528 escalones hasta la Golden Gallery, tienes la mejor vista panorámica de Londres.')">🔊 Escuchar</button>
-        <a class="book-btn" href="https://www.stpauls.co.uk/ticket-types-and-prices" target="_blank" rel="noopener">🎟️ Reservar</a>
+        <h3>Old Operating Theatre</h3>
+        <div class="price-line">Adulto £9 · Niña (14) £5.50 · 🕐 1h · London Bridge</div>
+        <p>El quirófano victoriano más antiguo de Europa (1822), escondido en el ático de una iglesia. Operaciones sin anestesia, hierbas medicinales, escaleras de caracol. Un trozo de medicina que da yuyu.</p>
+        <button class="audio-btn" onclick="speak(this,'El Old Operating Theatre es el quirófano más antiguo de Europa. Está en el ático de una iglesia del siglo dieciocho, y ahí operaban a los pacientes sin anestesia, delante de los estudiantes. El cirujano con más prestigio era el más veloz: la operación más rápida era la mejor. Hay escaleras de caracol de madera, el herbario con las hierbas medicinales, y la sala de operaciones con su mesa de madera. Es un trozo de la medicina victoriana que impresiona.')">🔊 Escuchar</button>
+        <a class="book-btn" href="https://oldoperatingtheatre.com/book-tickets/" target="_blank" rel="noopener">🎟️ Reservar</a>
       </div>
     </div>
     <div class="landmark-card">
-      <div class="landmark-img">⛪</div>
+      <div class="landmark-img">🔪</div>
       <div class="landmark-body">
-        <h3>Westminster Abbey</h3>
-        <div class="price-line">Adulto £27 · Niña (14) £12 · 🕐 1.5h</div>
-        <p>Iglesia gótica del siglo XI. Aquí coronan a los reyes. Tumbas de Newton, Dickens, Darwin.</p>
-        <button class="audio-btn" onclick="speak(this,'La Abadía de Westminster es el edificio más antiguo de Londres que sigue en uso. Todos los reyes desde 1066 han sido coronados aquí. Es como un museo de la historia británica con científicos, escritores y reyes enterrados en sus muros.')">🔊 Escuchar</button>
-        <a class="book-btn" href="https://www.westminster-abbey.org/tickets" target="_blank" rel="noopener">🎟️ Reservar</a>
+        <h3>Tour Jack el Destripador</h3>
+        <div class="price-line">Desde £15/persona · 🕐 2h · Sale de Tower Hill al anochecer</div>
+        <p>El crimen sin resolver más famoso de la historia. Paseo nocturno por Whitechapel con guía ripperólogo: las calles, las víctimas y las teorías de 1888. Para valientes.</p>
+        <button class="audio-btn" onclick="speak(this,'En mil ochocientos ochenta y ocho, alguien asesinó a cinco mujeres en el barrio de Whitechapel, y nunca lo atraparon. Le llamaron Jack el Destripador. El misterio sigue abierto: hay más de cien teorías sobre quién era. Este paseo nocturno recorre las calles donde ocurrió, con la historia de las víctimas y el Londres victoriano de fondo. No es un tour de terror con sustos: es historia real, contada de noche, en el sitio exacto.')">🔊 Escuchar</button>
+        <a class="book-btn" href="https://www.bestlondontours.co.uk/tours/jack-the-ripper-tour" target="_blank" rel="noopener">🎟️ Reservar</a>
       </div>
     </div>
     <div class="landmark-card">
@@ -1090,7 +1126,7 @@ footer { text-align:center;padding:3rem 1.5rem;color:var(--text-dim);font-size:0
 </section>
 
 <footer>
-  Hecho por NEO para David y sus hijas · Julio 2026 · v3.0<br>
+  Hecho por NEO para David y sus hijas · Agosto 2026 · v3.6<br>
   18 Amelia Street · Walworth · London SE17 3PY
 </footer>
 
@@ -1115,7 +1151,7 @@ L.marker(hotel).addTo(map).bindPopup('<b>18 Amelia Street</b><br>Walworth, Londo
 [{n:'Elephant & Castle',p:[51.4947,-0.1003]},{n:'Kennington',p:[51.4884,-0.1053]},{n:'Lambeth North',p:[51.4989,-0.1116]},{n:'Waterloo',p:[51.5036,-0.1130]},{n:'London Bridge',p:[51.5055,-0.0863]}].forEach(s=>{
   L.circleMarker(s.p,{radius:6,fillColor:'#d4a843',color:'#fff',weight:2,opacity:1,fillOpacity:0.8}).addTo(map).bindPopup('<b>'+s.n+'</b>');
 });
-[{n:'Imperial War Museum',p:[51.4958,-0.1087]},{n:'London Eye',p:[51.5033,-0.1195]},{n:'Big Ben',p:[51.5007,-0.1246]},{n:'Tate Modern',p:[51.5076,-0.0984]},{n:'Borough Market',p:[51.5057,-0.0910]},{n:'National Gallery',p:[51.5089,-0.1283]}].forEach(l=>{
+[{n:'Imperial War Museum',p:[51.4958,-0.1087]},{n:'London Eye',p:[51.5033,-0.1195]},{n:'Big Ben',p:[51.5007,-0.1246]},{n:'Tate Modern',p:[51.5076,-0.0984]},{n:'Borough Market',p:[51.5057,-0.0910]},{n:'National Gallery',p:[51.5089,-0.1283]},{n:'Hamleys',p:[51.5118,-0.1386]},{n:'Leadenhall Market',p:[51.5126,-0.0914]},{n:'London Mithraeum',p:[51.5128,-0.0900]},{n:'Old Operating Theatre',p:[51.5056,-0.0860]},{n:'Tower of London',p:[51.5081,-0.0759]}].forEach(l=>{
   L.marker(l.p,{icon:L.divIcon({className:'',html:'📍',iconSize:[20,20]})}).addTo(map).bindPopup('<b>'+l.n+'</b>');
 });
 
